@@ -2277,7 +2277,7 @@ address { font-style: normal; }
   color: #fff;
 }
 @media (max-width: 639px) {
-  .line-side { display: none; } /* スマホは line-float で代替 */
+  .line-side { top: auto; bottom: 260px; transform: none; padding: 10px 8px; }
 }
 
 .insta-side {
@@ -2307,7 +2307,7 @@ address { font-style: normal; }
   color: #fff;
 }
 @media (max-width: 639px) {
-  .insta-side { top: auto; bottom: 90px; transform: none; padding: 10px 8px; }
+  .insta-side { top: auto; bottom: 100px; transform: none; padding: 10px 8px; }
 }
 
 /* ========================================
