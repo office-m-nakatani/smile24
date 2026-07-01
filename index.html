@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description" content="スマイル24は香川県さぬき市長尾の24時間フィットネスジム。初心者・女性も安心のセキュリティと充実のマシン設備。いつでも好きな時間に、自分のペースで運動できます。無料見学受付中。">
+  <meta name="keywords" content="さぬき市 ジム, 24時間フィットネス, さぬき市 フィットネスジム, 女性 ジム, 初心者 ジム, スマイル24, 香川 ジム">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FF8547">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="スマイル24">
+  <meta property="og:title" content="スマイル24 | さぬき市の24時間フィットネスジム">
+  <meta property="og:description" content="初心者・女性も安心。24時間いつでも好きな時間に通えるフィットネスジム。無料見学受付中。">
+  <meta property="og:image" content="https://picsum.photos/seed/smile24og/1200/630">
+  <meta property="og:url" content="https://example.com"><!-- 実際のURLに変更してください -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="スマイル24 | さぬき市の24時間フィットネスジム">
+  <meta name="twitter:description" content="初心者・女性も安心の24時間フィットネスジム。無料見学受付中。">
+  <meta name="twitter:image" content="https://picsum.photos/seed/smile24og/1200/630">
+
+  <title>スマイル24 | さぬき市の24時間フィットネスジム</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=20260701a">
+
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "スマイル24",
+    "description": "香川県さぬき市長尾の24時間フィットネスジム。初心者・女性も安心のセキュリティと充実のマシン設備。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "長尾名37-7",
+      "addressLocality": "さぬき市",
+      "addressRegion": "香川県",
+      "addressCountry": "JP"
+    },
+    "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 00:00-24:00",
+    "url": "https://example.com",
+    "image": "https://picsum.photos/seed/smile24og/1200/630",
+    "priceRange": "¥¥"
+  }
+  </script>
+
+  <!--
+    Google Analytics (GA4)
+    トラッキングIDを取得後、コメントを外してIDを設定してください
+  -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+</head>
+<body>
+
+  <!-- =====================
+       ヘッダー / ナビゲーション
+       ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- ロゴ -->
+      <a href="#hero" class="header__logo" aria-label="スマイル24 トップへ">
+        <img src="images/logo-transparent.png" alt="スマイル24" class="header__logo-img">
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="header__nav" id="nav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li><a href="#reasons" class="header__nav-link">選ばれる理由</a></li>
+          <li><a href="#gallery" class="header__nav-link">館内紹介</a></li>
+          <li><a href="#pricing" class="header__nav-link">料金</a></li>
+          <li><a href="#flow" class="header__nav-link">利用の流れ</a></li>
+          <li><a href="#voices" class="header__nav-link">お客様の声</a></li>
+          <li><a href="#faq" class="header__nav-link">Q&amp;A</a></li>
+          <li><a href="#blog" class="header__nav-link">ブログ</a></li>
+          <li><a href="#access" class="header__nav-link">アクセス</a></li>
+          <li><a href="terms.html" class="header__nav-link">利用規約</a></li>
+          <li><a href="#contact" class="header__nav-link header__nav-cta">無料見学</a></li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガーボタン (スマホ) -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ナビオーバーレイ (スマホ) -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <!-- LINE 固定サイドバー -->
+  <a href="https://lin.ee/XXXXXXXX" class="line-side" target="_blank" rel="noopener noreferrer" aria-label="LINE公式アカウント">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M36 15.1c0-8.3-8.1-15.1-18-15.1S0 6.8 0 15.1c0 7.5 6.5 13.7 15.2 14.9.6.1 1.4.4 1.6.9.2.5.1 1.2 0 1.7 0 0-.2 1.3-.2 1.6-.1.5-.4 1.8 1.6.9 2-.9 10.6-6.3 14.5-10.8 2.7-3 4-6 4-9.2z"/></svg>
+    <span class="line-side__label">LINE</span>
+  </a>
+
+  <!-- Instagram 固定サイドバー -->
+  <a href="https://www.instagram.com/smile24_sanuki/" class="insta-side" target="_blank" rel="noopener noreferrer" aria-label="Instagram @smile24_sanuki">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <span class="insta-side__label">Instagram</span>
+  </a>
+
+  <main id="main">
+
+    <!-- ===========================
+         ① ファーストビュー (Hero)
+         =========================== -->
+    <section class="hero" id="hero" aria-label="メインビジュアル">
+
+      <div class="hero__bg">
+        <div class="hero__slides" aria-hidden="true">
+          <img src="images/hero.jpg"   alt="" class="hero__slide is-active" loading="eager" fetchpriority="high">
+          <img src="images/gym-01.jpg" alt="" class="hero__slide" loading="lazy">
+          <img src="images/gym-03.jpg" alt="" class="hero__slide" loading="lazy">
+          <img src="images/gym-04.jpg" alt="" class="hero__slide" loading="lazy">
+          <img src="images/gym-05.jpg" alt="" class="hero__slide" loading="lazy">
+        </div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- スライドインジケーター -->
+      <div class="hero__dots" aria-hidden="true">
+        <button class="hero__dot is-active" data-slide="0"></button>
+        <button class="hero__dot" data-slide="1"></button>
+        <button class="hero__dot" data-slide="2"></button>
+        <button class="hero__dot" data-slide="3"></button>
+        <button class="hero__dot" data-slide="4"></button>
+      </div>
+
+      <!-- テキストコンテンツ -->
+      <div class="hero__content container">
+        <p class="hero__label fade-in">
+          <span>香川県さぬき市</span>
+          <span>24時間フィットネスジム</span>
+        </p>
+
+        <h1 class="hero__title fade-in fade-delay-1">
+          あなたらしく、<br>
+          無理なく続く<br>
+          24時間ジム
+        </h1>
+
+        <p class="hero__subtitle fade-in fade-delay-2">
+          仕事帰りも、家族の時間も大切にしながら。<br>
+          自分のペースで続けられる、さぬき市のジム。
+        </p>
+
+        <div class="hero__cta fade-in fade-delay-3">
+          <a href="#contact" class="btn btn--cta btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            無料見学はこちら
+          </a>
+          <a href="https://smile24.hacomono.jp/home" class="btn btn--hacomono btn--lg" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            今すぐ入会する
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         ② 選ばれる理由
+         =========================== -->
+    <section class="section reasons" id="reasons" aria-labelledby="reasons-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Why Choose Us</p>
+          <h2 class="section-title" id="reasons-title">スマイル24が<br class="sp-only">選ばれる理由</h2>
+          <p class="section-desc">24時間いつでも通えるフィットネスジムで、あなたの理想のライフスタイルをサポートします。</p>
+        </div>
+
+        <div class="reasons__grid">
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="reason-card__title">24時間いつでも利用可能</h3>
+            <p class="reason-card__text">早朝・深夜・休日も関係なし。仕事帰りや生活スタイルに合わせて、自由に通えます。</p>
+          </div>
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="reason-card__title">女性も安心のセキュリティ</h3>
+            <p class="reason-card__text">会員証による入退室管理と防犯カメラを完備。女性おひとりでも安心してご利用いただけます。</p>
+          </div>
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="reason-card__title">毎日清掃・常に清潔</h3>
+            <p class="reason-card__text">スタッフが毎日丁寧に清掃。マシンも床もいつもピカピカ。気持ちのいい環境で思い切りトレーニングできます。</p>
+          </div>
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3 class="reason-card__title">本格マシン充実</h3>
+            <p class="reason-card__text">プロ仕様のMATRIXマシン、トレッドミル、ダンベル各種（1.5kg〜）など本格設備が揃います。有酸素も筋トレも思いのまま。</p>
+          </div>
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><path d="M4 12 Q4 4 12 4 Q20 4 20 12" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="6" y="12" width="12" height="8" rx="1"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <h3 class="reason-card__title">シャワー・更衣室完備</h3>
+            <p class="reason-card__text">仕事帰りもそのまま通えます。シャワー室（オプション）・着替えスペース・ストレッチマット・ウォータースタンド完備。プロテイン持参でそのまま補給も！</p>
+          </div>
+
+          <div class="reason-card fade-in-up">
+            <div class="reason-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="reason-card__title">通いやすい料金</h3>
+            <p class="reason-card__text">リーズナブルな月額料金で続けやすい価格設定。入会金・各種料金もすべて明確にご案内します。</p>
+          </div>
+
+        </div><!-- /.reasons__grid -->
+
+        <div class="section-cta fade-in-up">
+          <a href="#contact" class="btn btn--cta">無料見学はこちら</a>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         ③ 館内紹介 (Gallery)
+         =========================== -->
+    <section class="section section--gray gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Facility</p>
+          <h2 class="section-title" id="gallery-title">館内紹介</h2>
+          <p class="section-desc">清潔感あふれる充実した設備で、快適なトレーニング環境をご提供します。</p>
+        </div>
+
+        <div class="gallery__grid">
+
+          <div class="gallery__item fade-in-up" data-gallery-index="0" role="button" tabindex="0" aria-label="館内全景を拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/hero.jpg"
+                alt="スマイル24 館内全景 — MATRIXマシン・トレッドミルが揃う広々とした清潔な空間"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">館内全景</p>
+          </div>
+
+          <div class="gallery__item fade-in-up" data-gallery-index="1" role="button" tabindex="0" aria-label="マシンエリアを拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/gym-01.jpg"
+                alt="スマイル24 マシンエリア — MATRIXマシン・エアロバイク・トレッドミル完備"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">マシンエリア</p>
+          </div>
+
+          <div class="gallery__item fade-in-up" data-gallery-index="2" role="button" tabindex="0" aria-label="有酸素マシンエリアを拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/gym-03.jpg"
+                alt="スマイル24 有酸素マシンエリア — トレッドミル・カーブドトレッドミル複数台"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">有酸素マシンエリア</p>
+          </div>
+
+          <div class="gallery__item fade-in-up" data-gallery-index="3" role="button" tabindex="0" aria-label="フリーウェイトエリアを拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/gym-04.jpg"
+                alt="スマイル24 フリーウェイトエリア — ベンチ・ダンベル各種・ゴムマット完備"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">フリーウェイトエリア</p>
+          </div>
+
+          <div class="gallery__item fade-in-up" data-gallery-index="4" role="button" tabindex="0" aria-label="ダンベルを拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/gym-02.jpg"
+                alt="スマイル24 ダンベル各種 — 1.5kgの軽量から重量まで幅広く揃っています"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">ダンベル・フリーウェイト</p>
+          </div>
+
+          <div class="gallery__item fade-in-up" data-gallery-index="5" role="button" tabindex="0" aria-label="ストレッチエリアを拡大表示">
+            <div class="gallery__img-wrap">
+              <img
+                src="images/gym-05.jpg"
+                alt="スマイル24 ストレッチエリア — 広々としたストレッチマットで運動後のクールダウンも快適"
+                class="gallery__img"
+                loading="lazy"
+              >
+            </div>
+            <p class="gallery__caption">ストレッチエリア</p>
+          </div>
+
+        </div><!-- /.gallery__grid -->
+
+        <div class="section-cta fade-in-up">
+          <a href="#contact" class="btn btn--cta">無料見学を予約する</a>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+    <!-- ライトボックス -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示" hidden>
+      <div class="lightbox__backdrop" id="lightboxBackdrop" aria-hidden="true"></div>
+      <button class="lightbox__close" id="lightboxClose" aria-label="閉じる">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="26" height="26" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <button class="lightbox__prev" id="lightboxPrev" aria-label="前の写真">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="26" height="26" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="lightbox__content">
+        <img src="" alt="" class="lightbox__img" id="lightboxImg">
+        <p class="lightbox__caption" id="lightboxCaption"></p>
+      </div>
+      <button class="lightbox__next" id="lightboxNext" aria-label="次の写真">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="26" height="26" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+
+    <!-- ===========================
+         ④ 料金プラン
+         =========================== -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Pricing</p>
+          <h2 class="section-title" id="pricing-title">料金プラン</h2>
+          <p class="section-desc">シンプルで続けやすい料金設定。月額料金は税抜表示です。</p>
+        </div>
+
+        <div class="pricing__grid">
+
+          <div class="pricing-card fade-in-up">
+            <div class="pricing-card__header">
+              <p class="pricing-card__category">初期費用</p>
+              <h3 class="pricing-card__name">入会金</h3>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">¥11,000</span>
+              <span class="pricing-card__unit">（税込）</span>
+            </div>
+            <ul class="pricing-card__list">
+              <li>入会登録・会員証発行</li>
+              <li>初回のみの費用です</li>
+            </ul>
+          </div>
+
+          <div class="pricing-card pricing-card--popular fade-in-up">
+            <div class="pricing-card__badge">おすすめ</div>
+            <div class="pricing-card__header">
+              <p class="pricing-card__category">月額料金</p>
+              <h3 class="pricing-card__name">レギュラー会員</h3>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">¥3,980</span>
+              <span class="pricing-card__unit">/ 月（税抜）</span>
+            </div>
+            <p class="pricing-card__tax-note">※ 税込 ¥4,378</p>
+            <ul class="pricing-card__list">
+              <li>24時間365日 利用可能</li>
+              <li>全マシン使い放題</li>
+              <li>着替えスペース無料</li>
+              <li>ストレッチマット無料</li>
+              <li>ウォータースタンド無料</li>
+              <li>いつでも解約可能</li>
+            </ul>
+          </div>
+
+          <div class="pricing-card fade-in-up">
+            <div class="pricing-card__header">
+              <p class="pricing-card__category">オプション</p>
+              <h3 class="pricing-card__name">シャワー利用</h3>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">+¥1,000</span>
+              <span class="pricing-card__unit">/ 月（税抜）</span>
+            </div>
+            <p class="pricing-card__tax-note">※ 税込 +¥1,100</p>
+            <ul class="pricing-card__list">
+              <li>シャワー室が使い放題</li>
+              <li>仕事帰りもそのまま通える</li>
+            </ul>
+          </div>
+
+        </div><!-- /.pricing__grid -->
+
+        <p class="pricing__note fade-in-up">
+          ※ 月額料金は税抜表示です（税込 ¥4,378）。シャワーオプション税込 +¥1,100。詳細・キャンペーン情報はお問い合わせください。
+        </p>
+
+        <div class="section-cta fade-in-up">
+          <a href="https://smile24.hacomono.jp/home" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            今すぐ入会する
+          </a>
+          <a href="#contact" class="btn btn--outline">料金について相談する</a>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         ⑤ 利用の流れ
+         =========================== -->
+    <section class="section section--gray flow" id="flow" aria-labelledby="flow-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">How to Start</p>
+          <h2 class="section-title" id="flow-title">ご利用の流れ</h2>
+          <p class="section-desc">スマートフォンだけで入会手続きが完了。最短即日から利用できます。</p>
+        </div>
+
+        <div class="flow__steps">
+
+          <div class="flow-step fade-in-up">
+            <div class="flow-step__num">STEP<br><span>01</span></div>
+            <div class="flow-step__body">
+              <div class="flow-step__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="38" height="38"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <h3 class="flow-step__title">スマホでオンライン入会</h3>
+              <p class="flow-step__text">「今すぐ入会する」ボタンから、スマホだけで手続き完了。書類不要・来店不要です。</p>
+              <a href="https://smile24.hacomono.jp/home" class="flow-step__link" target="_blank" rel="noopener noreferrer">入会ページへ →</a>
+            </div>
+          </div>
+
+          <div class="flow-step__arrow fade-in-up" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+
+          <div class="flow-step fade-in-up">
+            <div class="flow-step__num">STEP<br><span>02</span></div>
+            <div class="flow-step__body">
+              <div class="flow-step__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="38" height="38"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="4" height="4"/></svg>
+              </div>
+              <h3 class="flow-step__title">会員証（QRコード）を受け取る</h3>
+              <p class="flow-step__text">登録後、スマホアプリに会員証QRコードが届きます。これだけでジムに入れます。</p>
+            </div>
+          </div>
+
+          <div class="flow-step__arrow fade-in-up" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+
+          <div class="flow-step fade-in-up">
+            <div class="flow-step__num">STEP<br><span>03</span></div>
+            <div class="flow-step__body">
+              <div class="flow-step__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="38" height="38"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 12l3 3 5-5"/></svg>
+              </div>
+              <h3 class="flow-step__title">QRコードをかざして入館</h3>
+              <p class="flow-step__text">入口のリーダーにQRコードをかざすとドアが開きます。スタッフ不在でも24時間入れます。</p>
+            </div>
+          </div>
+
+          <div class="flow-step__arrow fade-in-up" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+
+          <div class="flow-step fade-in-up">
+            <div class="flow-step__num">STEP<br><span>04</span></div>
+            <div class="flow-step__body">
+              <div class="flow-step__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="38" height="38"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h3 class="flow-step__title">トレーニングスタート！</h3>
+              <p class="flow-step__text">あとは自由！全マシンが使い放題。24時間365日、好きな時間に通えます。</p>
+            </div>
+          </div>
+
+        </div><!-- /.flow__steps -->
+
+        <div class="section-cta fade-in-up">
+          <a href="#contact" class="btn btn--cta">まずは無料見学する</a>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         ⑥ よくある質問 (FAQ)
+         =========================== -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Q&amp;A</p>
+          <h2 class="section-title" id="faq-title">よくある質問</h2>
+          <p class="section-desc">ご入会前によく寄せられるご質問にお答えします。</p>
+        </div>
+
+        <div class="faq__list fade-in-up" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>本当に24時間いつでも利用できますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>はい、年中無休・24時間365日ご利用いただけます。元日・お盆・年末年始も通常通り営業しております。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>ジム初心者でも大丈夫ですか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>もちろんです。当ジムは24時間無人営業ですが、各マシンには使い方を記載しており、このページのAIアシスタントでも機材の説明をご確認いただけます。ご不明な点はLINEでお気軽にお問い合わせください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>女性一人でも安全ですか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>会員証による入退室管理と館内防犯カメラを設置しており、女性の方でも安心してご利用いただける環境を整えています。深夜・早朝の利用も安全にお使いいただけます。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>見学・体験はできますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>はい、無料で館内見学・体験を受け付けています。LINEまたはお問い合わせフォームからお気軽にご予約ください。実際にマシンをお試しいただくことも可能です。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>スタッフは常駐していますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>基本的に無人での24時間営業です。緊急時の対応システムを完備しており安心してご利用いただけます。ご質問はLINEからいつでもお問い合わせください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>契約の縛りはありますか？いつでも解約できますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>最低利用期間の縛りはありません。いつでも退会いただけます。退会手続きについての詳細はスタッフまでお問い合わせください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>駐車場はありますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>はい、無料駐車場をご用意しています。お車でのご来館も歓迎します。アクセスページでご確認いただけます。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>ウェアやシューズは必要ですか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>運動に適した服装と室内専用シューズが必要です。レンタルシューズもご用意していますので、初回はお気軽にお越しください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>月会費の支払い方法は？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>クレジットカードまたは口座振替でのお支払いとなります。詳しくはお問い合わせください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>タオルは持参が必要ですか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>タオルは会員様各自でご持参ください。レンタルサービスは行っておりません。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>友達と一緒に利用できますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>会員の方同士であればご一緒にご利用いただけます。お友達紹介キャンペーンを実施することもありますので、詳しくはお問い合わせください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__q" aria-expanded="false">
+              <span>子どもも利用できますか？</span>
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__a">
+              <p>安全のため、中学生以下の方のご利用はお断りしています。高校生以上の方は保護者同意書の提出が必要です。詳しくはお問い合わせください。</p>
+            </div>
+          </div>
+
+        </div><!-- /.faq__list -->
+
+        <div class="section-cta fade-in-up">
+          <p class="faq__more">他にご質問があれば右側のLINEボタンからお気軽にお問い合わせください</p>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         ⑦ お客様の声
+         =========================== -->
+    <section class="section voices" id="voices" aria-labelledby="voices-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Voice</p>
+          <h2 class="section-title" id="voices-title">お客様の声</h2>
+          <p class="section-desc">オープン1周年。会員様からリアルな声をいただきました。</p>
+        </div>
+
+        <div class="voices__grid">
+
+          <!-- 30代女性 -->
+          <div class="voice-card fade-in-up">
+            <div class="voice-card__photo">
+              <img src="images/gym-03.jpg" alt="30代女性会員" class="voice-card__bg">
+              <div class="voice-card__avatar" aria-hidden="true">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                  <circle cx="40" cy="40" r="40" fill="#FFF0E6"/>
+                  <circle cx="40" cy="28" r="14" fill="#FF8547" opacity=".85"/>
+                  <ellipse cx="40" cy="64" rx="22" ry="16" fill="#FF8547" opacity=".85"/>
+                  <!-- hair -->
+                  <path d="M26 26 Q28 14 40 13 Q52 14 54 26 Q52 20 40 20 Q28 20 26 26Z" fill="#5A3A2A"/>
+                  <path d="M26 24 Q22 30 24 38 Q26 20 40 20 Q28 20 26 24Z" fill="#5A3A2A"/>
+                  <path d="M54 24 Q58 30 56 38 Q54 20 40 20 Q52 20 54 24Z" fill="#5A3A2A"/>
+                </svg>
+              </div>
+            </div>
+            <div class="voice-card__body">
+              <div class="voice-card__stars" aria-label="5つ星評価">★★★★★</div>
+              <blockquote class="voice-card__quote">
+                「毎日清掃してくれているので、マシンも床もいつもピカピカ！気持ちよく運動できます。仕事終わりにランニングして、シャワーを浴びてプロテインを飲んで帰るのが私のルーティンになりました。体も引き締まってきて、通い続けられています♪」
+              </blockquote>
+              <div class="voice-card__profile">
+                <p class="voice-card__name">Y・Kさん</p>
+                <p class="voice-card__meta">30代 / 女性 / 会員歴 約半年</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 50代男性 -->
+          <div class="voice-card fade-in-up">
+            <div class="voice-card__photo">
+              <img src="images/gym-01.jpg" alt="50代男性会員" class="voice-card__bg">
+              <div class="voice-card__avatar" aria-hidden="true">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                  <circle cx="40" cy="40" r="40" fill="#FFF0E6"/>
+                  <circle cx="40" cy="28" r="14" fill="#FF8547" opacity=".85"/>
+                  <ellipse cx="40" cy="64" rx="22" ry="16" fill="#FF8547" opacity=".85"/>
+                  <!-- short hair -->
+                  <path d="M28 22 Q30 14 40 14 Q50 14 52 22 Q50 18 40 18 Q30 18 28 22Z" fill="#888"/>
+                </svg>
+              </div>
+            </div>
+            <div class="voice-card__body">
+              <div class="voice-card__stars" aria-label="5つ星評価">★★★★★</div>
+              <blockquote class="voice-card__quote">
+                「友人に誘われて一緒に入会したのがきっかけです。最初は続くか不安でしたが、友達と来ると自然と足が向きますね（笑）。24時間いつでも来られるので、早朝や夜遅くでも自分のペースで通えています。設備も充実していて大満足です！」
+              </blockquote>
+              <div class="voice-card__profile">
+                <p class="voice-card__name">T・Mさん</p>
+                <p class="voice-card__meta">50代 / 男性 / 会員歴 約半年</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.voices__grid -->
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         スタッフブログ
+         =========================== -->
+    <section class="section section--gray blog" id="blog" aria-labelledby="blog-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Staff Blog</p>
+          <h2 class="section-title" id="blog-title">スタッフブログ</h2>
+          <p class="section-desc">毎週更新！さぬき市の季節ネタ＆健康情報をお届けします。</p>
+        </div>
+
+        <div class="blog__grid" id="blogGrid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         ⑧ アクセス
+         =========================== -->
+    <section class="section section--gray access" id="access" aria-labelledby="access-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Access</p>
+          <h2 class="section-title" id="access-title">アクセス</h2>
+        </div>
+
+        <div class="access__layout">
+
+          <div class="access__info fade-in-up">
+            <dl class="access__dl">
+
+              <div class="access__row">
+                <dt class="access__dt">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  住所
+                </dt>
+                <dd class="access__dd">
+                  <address>香川県さぬき市長尾名37-7<br>スマイル24</address>
+                </dd>
+              </div>
+
+              <div class="access__row">
+                <dt class="access__dt">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  営業時間
+                </dt>
+                <dd class="access__dd">24時間・年中無休</dd>
+              </div>
+
+              <div class="access__row">
+                <dt class="access__dt">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  駐車場
+                </dt>
+                <dd class="access__dd">無料駐車場あり</dd>
+              </div>
+
+              <div class="access__row">
+                <dt class="access__dt">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  電話
+                </dt>
+                <dd class="access__dd"><a href="tel:0120368098" style="color:inherit;">0120-368-098</a></dd>
+              </div>
+
+            </dl>
+
+            <a
+              href="https://maps.google.com/maps?q=香川県さぬき市長尾名37-7"
+              class="btn btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Google マップで開く
+            </a>
+          </div><!-- /.access__info -->
+
+          <div class="access__map fade-in-up">
+            <!--
+              Google Maps埋め込み
+              より正確な埋め込みURLに差し替えてください。
+              Google Maps → 共有 → 地図を埋め込む → iframeコードをコピー
+            -->
+            <iframe
+              src="https://maps.google.com/maps?q=%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%95%E3%81%AC%E3%81%8D%E5%B8%82%E9%95%B7%E5%B0%BE%E5%90%8D37-7&output=embed&hl=ja&z=15"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="スマイル24 アクセスマップ"
+              aria-label="Google マップ — スマイル24の場所"
+            ></iframe>
+          </div>
+
+        </div><!-- /.access__layout -->
+
+      </div><!-- /.container -->
+    </section>
+
+
+    <!-- ===========================
+         ⑧ お問い合わせ
+         =========================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="section-header fade-in-up">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title" id="contact-title">お問い合わせ・<br class="sp-only">無料見学予約</h2>
+          <p class="section-desc">まずはLINEでお気軽にご相談ください。24時間受付中です。</p>
+        </div>
+
+        <!-- LINE優先ブロック -->
+        <div class="contact__line fade-in-up">
+          <div class="contact__line-inner">
+            <div class="contact__line-text">
+              <h3 class="contact__line-title">LINEで無料相談</h3>
+              <p class="contact__line-desc">見学予約・料金のご質問・入会のご相談など、何でもお気軽にどうぞ。スタッフが丁寧にご案内します。</p>
+              <div class="contact__line-actions">
+                <a
+                  href="https://lin.ee/XXXXXXXX"
+                  class="btn btn--line-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M36 15.1c0-8.3-8.1-15.1-18-15.1S0 6.8 0 15.1c0 7.5 6.5 13.7 15.2 14.9.6.1 1.4.4 1.6.9.2.5.1 1.2 0 1.7 0 0-.2 1.3-.2 1.6-.1.5-.4 1.8 1.6.9 2-.9 10.6-6.3 14.5-10.8 2.7-3 4-6 4-9.2z"/></svg>
+                  LINEで無料相談する
+                </a>
+                <a href="tel:0120368098" class="contact__tel">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  0120-368-098
+                </a>
+              </div>
+            </div>
+            <div class="contact__line-qr">
+              <img src="images/line-qr.png" alt="スマイル24 LINE公式アカウント QRコード" width="140" height="140">
+              <p class="contact__line-qr-label">QRコードでも追加できます</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 通常問い合わせフォーム -->
+        <div class="contact__form-wrap fade-in-up">
+          <h3 class="contact__form-title">お問い合わせフォーム</h3>
+
+          <!--
+            フォームの送信先を設定してください。
+            例: Netlify Forms、FormSpark、Google Formsなど
+            action属性に送信先URLを設定することで実際のメール送信が可能になります。
+          -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <input type="hidden" name="_subject" value="スマイル24 HPからのお問い合わせ">
+            <input type="hidden" name="_language" value="ja">
+
+            <div class="form-group">
+              <label class="form-label" for="name">
+                お名前 <span class="form-badge form-badge--required">必須</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="例：田中 明美"
+                autocomplete="name"
+                required
+                aria-required="true"
+                aria-describedby="nameError"
+              >
+              <p class="form-error" id="nameError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                メールアドレス <span class="form-badge form-badge--required">必須</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="example@email.com"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="emailError"
+              >
+              <p class="form-error" id="emailError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">
+                電話番号 <span class="form-badge form-badge--optional">任意</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="090-0000-0000"
+                autocomplete="tel"
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">
+                お問い合わせ内容 <span class="form-badge form-badge--required">必須</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
+                rows="5"
+                placeholder="例：無料見学を希望しています。○○日の午後は見学可能でしょうか？"
+                required
+                aria-required="true"
+                aria-describedby="messageError"
+              ></textarea>
+              <p class="form-error" id="messageError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-check">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  class="form-check__input"
+                  required
+                  aria-required="true"
+                  aria-describedby="privacyError"
+                >
+                <span class="form-check__label">
+                  <a href="#" class="form-link">プライバシーポリシー</a>に同意します
+                </span>
+              </label>
+              <p class="form-error" id="privacyError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <button type="submit" class="btn btn--cta btn--submit" id="submitBtn">
+              送信する
+            </button>
+
+            <!-- 送信成功メッセージ -->
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="28" height="28" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <p>お問い合わせを受け付けました！<br>2〜3営業日以内にご連絡いたします。</p>
+            </div>
+
+          </form>
+        </div><!-- /.contact__form-wrap -->
+
+      </div><!-- /.container -->
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- =====================
+       フッター
+       ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <a href="#hero" class="footer__logo" aria-label="スマイル24 トップへ">
+            <img src="images/logo-transparent.png" alt="スマイル24" class="footer__logo-img">
+          </a>
+          <p class="footer__tagline">あなたらしく、無理なく続く24時間ジム</p>
+          <address class="footer__address">
+            香川県さぬき市長尾名37-7
+          </address>
+          <p class="footer__hours">営業時間：24時間・年中無休</p>
+          <a href="tel:0120368098" class="footer__tel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0120-368-098
+          </a>
+
+          <div class="footer__sns">
+            <a href="https://www.instagram.com/smile24_sanuki/" class="footer__sns-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram @smile24_sanuki">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @smile24_sanuki
+            </a>
+            <a href="https://smile24.hacomono.jp/home" class="footer__sns-link" target="_blank" rel="noopener noreferrer" aria-label="会員・入会ページ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              会員・入会ページ
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <ul class="footer__nav-list">
+            <li><a href="#reasons" class="footer__nav-link">選ばれる理由</a></li>
+            <li><a href="#gallery" class="footer__nav-link">館内紹介</a></li>
+            <li><a href="#pricing" class="footer__nav-link">料金プラン</a></li>
+            <li><a href="#flow" class="footer__nav-link">利用の流れ</a></li>
+            <li><a href="#voices" class="footer__nav-link">お客様の声</a></li>
+            <li><a href="#faq" class="footer__nav-link">よくある質問</a></li>
+            <li><a href="#access" class="footer__nav-link">アクセス</a></li>
+            <li><a href="#contact" class="footer__nav-link">お問い合わせ</a></li>
+            <li><a href="https://smile24.hacomono.jp/home" class="footer__nav-link" target="_blank" rel="noopener noreferrer">会員・入会ページ ↗</a></li>
+          </ul>
+        </nav>
+
+      </div><!-- /.footer__top -->
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 スマイル24 All Rights Reserved.</p>
+        <ul class="footer__policy">
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.container -->
+  </footer>
+
+
+  <!-- ページトップボタン -->
+  <button class="page-top" id="pageTop" aria-label="ページトップへ戻る">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- スマホ固定LINEボタン (スマホのみ表示) -->
+  <a
+    href="tel:0120368098"
+    class="line-float line-float--tel"
+    aria-label="電話でお問い合わせ"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>電話する</span>
+  </a>
+
+  <!-- スマホ固定LINEボタン (スマホのみ表示) -->
+  <a
+    href="https://lin.ee/XXXXXXXX"
+    class="line-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LINEでお問い合わせ"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M36 15.1c0-8.3-8.1-15.1-18-15.1S0 6.8 0 15.1c0 7.5 6.5 13.7 15.2 14.9.6.1 1.4.4 1.6.9.2.5.1 1.2 0 1.7 0 0-.2 1.3-.2 1.6-.1.5-.4 1.8 1.6.9 2-.9 10.6-6.3 14.5-10.8 2.7-3 4-6 4-9.2z"/></svg>
+    <span>LINE相談</span>
+  </a>
+
+  <!-- 今日のメッセージ トースト -->
+  <div class="day-toast" id="dayToast" role="status" aria-live="polite">
+    <div class="day-toast__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </div>
+    <div class="day-toast__body">
+      <p class="day-toast__date" id="toastDate"></p>
+      <p class="day-toast__kinen" id="toastKinen"></p>
+      <p class="day-toast__msg" id="toastMsg"></p>
+    </div>
+    <button class="day-toast__close" id="toastClose" aria-label="閉じる">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js?v=20260630c"></script>
+
+  <!-- AI相談チャット -->
+  <button class="ai-chat-btn" id="aiChatBtn" aria-label="AI相談を開く" aria-expanded="false">
+    <span class="ai-chat-btn__icon">🤖</span>
+    <span class="ai-chat-btn__label">AI相談</span>
+  </button>
+
+  <div class="ai-chat-panel" id="aiChatPanel" role="dialog" aria-label="AI相談チャット" aria-hidden="true">
+    <!-- Header -->
+    <div class="ai-chat__hd">
+      <div class="ai-chat__avatar" aria-hidden="true">🤖</div>
+      <div class="ai-chat__hd-info">
+        <p class="ai-chat__hd-name" id="aiChatHdName">スマイル24 AIアシスタント</p>
+        <p class="ai-chat__hd-sub" id="aiChatHdSub">ご質問にお答えします</p>
+      </div>
+      <button class="ai-lang-btn" id="aiChatLangBtn" title="Switch to English">EN</button>
+      <button class="ai-chat__close-btn" id="aiChatClose" aria-label="チャットを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="ai-chat__body" id="aiChatBody"></div>
+
+    <!-- Category Buttons -->
+    <div class="ai-chat__cats">
+      <button class="ai-chat__cat-btn" data-cat="machine">🏋️ 機材・マシン</button>
+      <button class="ai-chat__cat-btn" data-cat="pricing">💰 料金・入会</button>
+      <button class="ai-chat__cat-btn" data-cat="facility">🏠 施設・利用</button>
+      <button class="ai-chat__cat-btn" data-cat="training">💪 トレーニング</button>
+    </div>
+
+    <!-- Input -->
+    <div class="ai-chat__ft">
+      <input type="text" class="ai-chat__input" id="aiChatInput" placeholder="質問を入力してください..." autocomplete="off" maxlength="80">
+      <button class="ai-chat__send-btn" id="aiChatSend" aria-label="送信">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="17" height="17" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="ai-chat.js?v=20260701d"></script>
+</body>
+</html>
