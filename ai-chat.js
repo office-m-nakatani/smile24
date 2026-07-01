@@ -11,6 +11,26 @@
   /* ── Message History (言語切替時の再描画用) ─────────── */
   var MSG_HISTORY = [];
 
+  /* ── Scroll-triggered body selector ─────────────── */
+  var _scrollUnlock = null; // pending scroll listener cleanup
+
+  function addBodySelectorOnScroll() {
+    if (_scrollUnlock) { _scrollUnlock(); _scrollUnlock = null; }
+    var triggered = false;
+    function onScroll() {
+      if (triggered) return;
+      if (msgBody.scrollTop + msgBody.clientHeight >= msgBody.scrollHeight - 60) {
+        triggered = true;
+        msgBody.removeEventListener('scroll', onScroll);
+        _scrollUnlock = null;
+        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+        addBodySelector();
+      }
+    }
+    msgBody.addEventListener('scroll', onScroll);
+    _scrollUnlock = function() { msgBody.removeEventListener('scroll', onScroll); };
+  }
+
   /* ── Machine Data ─────────────────────────────────── */
   var MACHINES = [
     {
@@ -585,10 +605,7 @@
     if (key === 'cardio') {
       addBot('<b>有酸素系マシン</b>のご案内です。', '<b>Cardio Machines</b> — here\'s what we have.');
       addCardioCard();
-      setTimeout(function() {
-        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
-        addBodySelector();
-      }, 400);
+      addBodySelectorOnScroll();
     } else if (key === 'all') {
       addBot('全<b>5種類</b>のマシンをご紹介します！', 'Here are all <b>5 machines</b>!');
       MACHINES.forEach(function (m) { addMachineCard(m); });
@@ -728,10 +745,7 @@
       hit.showMachines.forEach(function (id) {
         for (var k = 0; k < MACHINES.length; k++) { if (MACHINES[k].id === id) { addMachineCard(MACHINES[k]); break; } }
       });
-      setTimeout(function() {
-        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
-        addBodySelector();
-      }, 400);
+      addBodySelectorOnScroll();
     } else if (hit.showBodySelector) {
       addBot(hit.a_ja, hit.a_en);
       addBodySelector();
@@ -830,6 +844,7 @@
 
   /* ── Re-render history on language switch ───────────── */
   function reRenderHistory() {
+    if (_scrollUnlock) { _scrollUnlock(); _scrollUnlock = null; }
     msgBody.innerHTML = '';
     MSG_HISTORY.forEach(function(entry) {
       if      (entry.t === 'user')    { _renderUser(entry.text); }
