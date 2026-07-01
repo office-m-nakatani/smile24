@@ -4,6 +4,10 @@
   /* ── Language ─────────────────────────────────────── */
   var LANG = 'ja';
 
+  /* ── Campaign (キャンペーン情報: null=なし, 文字列で内容を入力) ── */
+  var CAMPAIGN = null;
+  // 例: var CAMPAIGN = '入会金無料キャンペーン実施中！（2026年8月末まで）';
+
   /* ── Machine Data ─────────────────────────────────── */
   var MACHINES = [
     {
@@ -267,10 +271,10 @@
     {
       cat: 'pricing',
       q_ja: '入会金はいくらですか？', q_en: 'Is there a registration fee?',
-      keys_ja: ['入会金', '初期費用', '登録費', '入会 費用', '入会 いくら'],
-      keys_en: ['registration fee', 'signup fee', 'joining fee', 'enrollment fee', 'initial fee'],
-      a_ja: '入会金は<b>11,000円（税込）</b>です。初回ご入会時のみかかります。',
-      a_en: 'Registration fee is <b>¥11,000 (incl. tax)</b>. This is a one-time fee paid at sign-up.'
+      keys_ja: ['入会金', '初期費用', '登録費', '入会 費用', '入会 いくら', '最初 費用', 'はじめ 費用'],
+      keys_en: ['registration fee', 'signup fee', 'joining fee', 'enrollment fee', 'initial fee', 'first payment'],
+      a_ja: '入会に必要な<b>初期費用</b>は以下の合計になります：<br>① 入会金：<b>11,000円（税込）</b>（初回のみ）<br>② 入会月の<b>日割り料金</b><br>③ <b>翌月分の月額料金</b>（¥4,378）<br><br>例）7月15日入会の場合：入会金11,000円 + 日割り約2,335円 + 翌月分4,378円',
+      a_en: 'Initial costs at sign-up:<br>① Registration fee: <b>¥11,000 (tax incl.)</b> (one-time only)<br>② Pro-rated fee for first month<br>③ <b>Next month\'s fee</b> (¥4,378)'
     },
     {
       cat: 'pricing',
@@ -695,6 +699,13 @@
       addCardioCard();
     } else {
       addBot(LANG === 'ja' ? hit.a_ja : hit.a_en);
+    }
+
+    /* キャンペーン情報を料金カテゴリに自動付加 */
+    if (hit.cat === 'pricing' && CAMPAIGN) {
+      addBot(LANG === 'ja'
+        ? '🎉 <b>現在のキャンペーン情報：</b><br>' + CAMPAIGN
+        : '🎉 <b>Current Campaign:</b><br>' + CAMPAIGN);
     }
 
     /* show up to 3 related questions */

@@ -2277,7 +2277,7 @@ address { font-style: normal; }
   color: #fff;
 }
 @media (max-width: 639px) {
-  .line-side { top: auto; bottom: 260px; transform: none; padding: 10px 8px; }
+  .line-side { display: none; }
 }
 
 .insta-side {
