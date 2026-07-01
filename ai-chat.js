@@ -8,6 +8,9 @@
   var CAMPAIGN = null;
   // 例: var CAMPAIGN = '入会金無料キャンペーン実施中！（2026年8月末まで）';
 
+  /* ── Message History (言語切替時の再描画用) ─────────── */
+  var MSG_HISTORY = [];
+
   /* ── Machine Data ─────────────────────────────────── */
   var MACHINES = [
     {
@@ -263,7 +266,7 @@
     {
       cat: 'pricing',
       q_ja: '月額はいくらですか？', q_en: 'What is the monthly fee?',
-      keys_ja: ['月額', '月会費', 'いくら', '料金', '費用', '値段', '月いくら', '会費'],
+      keys_ja: ['月額', '月会費', '月いくら', '月 料金', '月 費用', '値段', '会費'],
       keys_en: ['price', 'fee', 'monthly', 'cost', 'how much', 'monthly fee', 'membership fee'],
       a_ja: 'レギュラー会員は<b>月額3,980円（税抜）</b>、税込で<b>4,378円/月</b>です。<br>シャワーオプション付きは +1,100円（税込）です。',
       a_en: 'Regular membership is <b>¥3,980/month (excl. tax)</b>, or <b>¥4,378/month (incl. tax)</b>.<br>+¥1,100 (incl. tax) for shower access.'
@@ -493,6 +496,7 @@
       langBtn.textContent = LANG === 'ja' ? 'EN' : '日';
       langBtn.title = LANG === 'ja' ? 'Switch to English' : '日本語に切り替え';
       syncUILang();
+      reRenderHistory();
     });
   }
 
@@ -514,13 +518,14 @@
 
   /* ── Welcome ──────────────────────────────────────── */
   function welcome() {
-    if (LANG === 'ja') {
-      addBot('こんにちは！<b>スマイル24 AIアシスタント</b>です🤖<br>ご質問をどうぞ！カテゴリから選ぶか、気になることを入力してください。');
-      addSuggs(['どのような機材がありますか？', '月額はいくらですか？', '月の途中で入会した場合は？', '無料見学はできますか？']);
-    } else {
-      addBot('Hello! I\'m the <b>Smile24 AI Assistant</b> 🤖<br>Ask me anything! Pick a category or type your question below.');
-      addSuggs(['What machines do you have?', 'What is the monthly fee?', 'Can I join mid-month?', 'Is a free tour available?']);
-    }
+    addBot(
+      'こんにちは！<b>スマイル24 AIアシスタント</b>です🤖<br>ご質問をどうぞ！カテゴリから選ぶか、気になることを入力してください。',
+      'Hello! I\'m the <b>Smile24 AI Assistant</b> 🤖<br>Ask me anything! Pick a category or type your question below.'
+    );
+    addSuggs(
+      ['どのような機材がありますか？', '月額はいくらですか？', '月の途中で入会した場合は？', '無料見学はできますか？'],
+      ['What machines do you have?', 'What is the monthly fee?', 'Can I join mid-month?', 'Is a free tour available?']
+    );
   }
 
   /* ── Category Buttons ─────────────────────────────── */
@@ -533,16 +538,18 @@
 
       if (cat === 'machine') {
         delayedRespond(function () {
-          addBot(LANG === 'ja' ? '<b>どの部位を鍛えたいですか？</b>以下から選んでください。' : '<b>Which body part would you like to train?</b> Choose below.');
+          addBot('<b>どの部位を鍛えたいですか？</b>以下から選んでください。', '<b>Which body part would you like to train?</b> Choose below.');
           addBodySelector();
         });
       } else {
+        var JA_CAT = {pricing:'料金・入会', facility:'施設・利用', training:'トレーニング'};
+        var EN_CAT = {pricing:'Pricing', facility:'Facility', training:'Training'};
         delayedRespond(function () {
-          var catLabel = b.textContent.trim();
-          addBot(LANG === 'ja'
-            ? catLabel + 'のよくあるご質問です。気になる項目を選んでください！'
-            : 'Common questions about ' + catLabel + '. Tap one to learn more!');
-          addSuggs(CAT_SUGG[cat][LANG]);
+          addBot(
+            (JA_CAT[cat] || cat) + 'のよくあるご質問です。気になる項目を選んでください！',
+            'Common questions about ' + (EN_CAT[cat] || cat) + '. Tap one to learn more!'
+          );
+          addSuggs(CAT_SUGG[cat]['ja'], CAT_SUGG[cat]['en']);
         });
       }
     });
@@ -550,6 +557,10 @@
 
   /* ── Body Part Selector ───────────────────────────── */
   function addBodySelector() {
+    MSG_HISTORY.push({t:'bodysel'});
+    _renderBodySelector();
+  }
+  function _renderBodySelector() {
     var wrap = mkDiv('body-selector');
     var parts = PARTS[LANG];
     parts.forEach(function (p) {
@@ -560,7 +571,7 @@
       b.addEventListener('click', function () {
         wrap.remove();
         addUser(p.label);
-        delayedRespond(function () { handlePart(p.key, p.label); });
+        delayedRespond(function () { handlePart(p.key); });
       });
       wrap.appendChild(b);
     });
@@ -568,26 +579,41 @@
     scroll();
   }
 
-  function handlePart(key, label) {
+  function handlePart(key) {
+    var pj = PARTS.ja.filter(function(p){ return p.key === key; })[0];
+    var pe = PARTS.en.filter(function(p){ return p.key === key; })[0];
     if (key === 'cardio') {
-      addBot(LANG === 'ja' ? '<b>有酸素系マシン</b>のご案内です。' : '<b>Cardio Machines</b> — here\'s what we have.');
+      addBot('<b>有酸素系マシン</b>のご案内です。', '<b>Cardio Machines</b> — here\'s what we have.');
       addCardioCard();
+      setTimeout(function() {
+        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+        addBodySelector();
+      }, 400);
     } else if (key === 'all') {
-      addBot(LANG === 'ja' ? '全<b>5種類</b>のマシンをご紹介します！' : 'Here are all <b>5 machines</b>!');
+      addBot('全<b>5種類</b>のマシンをご紹介します！', 'Here are all <b>5 machines</b>!');
       MACHINES.forEach(function (m) { addMachineCard(m); });
     } else {
       var machines = MACHINES.filter(function (m) { return m.parts.indexOf(key) >= 0; });
       if (machines.length) {
-        addBot(LANG === 'ja'
-          ? '<b>' + label + '</b>に効果的なマシンをご紹介します！'
-          : 'Machines that target <b>' + label + '</b>:');
+        addBot(
+          (pj ? '<b>' + esc(pj.label.replace(/^[🔵🟢🟠🟡🟣]\s*/,'')) + '</b>' : '') + 'に効果的なマシンをご紹介します！',
+          'Machines that target <b>' + (pe ? pe.label.replace(/^[🔵🟢🟠🟡🟣]\s*/,'') : key) + '</b>:'
+        );
         machines.forEach(function (m) { addMachineCard(m); });
+        setTimeout(function() {
+          addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+          addBodySelector();
+        }, 400);
       }
     }
   }
 
   /* ── Machine Card ─────────────────────────────────── */
   function addMachineCard(m) {
+    MSG_HISTORY.push({t:'machine', m:m});
+    _renderMachineCard(m);
+  }
+  function _renderMachineCard(m) {
     var card = mkDiv('machine-card');
     var muscleHtml = m.muscles[LANG].map(function (ms) {
       return '<span class="mc-muscle" style="background:' + m.color + '22;color:' + m.color + '">' + esc(ms) + '</span>';
@@ -595,10 +621,11 @@
     var stepsHtml = m.steps[LANG].map(function (s) {
       return '<div class="mc-step">' + esc(s) + '</div>';
     }).join('');
+    var grad = 'linear-gradient(to top, ' + m.color + 'f0 0%, ' + m.color + '80 55%, transparent 100%)';
     card.innerHTML =
       '<div class="mc-img-wrap">' +
         '<img src="' + m.img + '" alt="' + esc(m.name[LANG]) + '" class="mc-img" loading="lazy">' +
-        '<div class="mc-img-overlay" style="background:' + m.color + 'dd">' +
+        '<div class="mc-img-overlay" style="background:' + grad + '">' +
           '<span class="mc-machine-name">' + esc(m.name[LANG]) + '</span>' +
           '<span class="mc-code">' + m.code + '</span>' +
         '</div>' +
@@ -606,14 +633,19 @@
       '<div class="mc-body">' +
         '<div class="mc-muscles">' + muscleHtml + '</div>' +
         '<p class="mc-desc">' + m.desc[LANG] + '</p>' +
+        '<div class="mc-step-list">' + stepsHtml + '</div>' +
         '<div class="mc-point">💡 ' + esc(m.point[LANG]) + '</div>' +
       '</div>';
     msgBody.appendChild(card);
-    scroll();
+    msgBody.scrollTop = card.offsetTop - 8;
   }
 
   /* ── Cardio Card ──────────────────────────────────── */
   function addCardioCard() {
+    MSG_HISTORY.push({t:'cardio'});
+    _renderCardioCard();
+  }
+  function _renderCardioCard() {
     var d = CARDIO[LANG];
     var card = mkDiv('cardio-card');
     var listHtml = d.list.map(function (item) {
@@ -633,7 +665,7 @@
         '<div class="mc-point">💡 ' + esc(d.tip) + '</div>' +
       '</div>';
     msgBody.appendChild(card);
-    scroll();
+    msgBody.scrollTop = card.offsetTop - 8;
   }
 
   /* ── Send ─────────────────────────────────────────── */
@@ -673,9 +705,10 @@
   function respond(query) {
     var hit = matchDB(query);
     if (!hit) {
-      addBot(LANG === 'ja'
-        ? '申し訳ございません、ご質問の内容が確認できませんでした。<br>📞 <b>0120-368-098</b> またはLINEからお気軽にお問い合わせください！'
-        : 'Sorry, I couldn\'t find an answer to that.<br>Please contact us at 📞 <b>0120-368-098</b> or via LINE!');
+      addBot(
+        '申し訳ございません、ご質問の内容が確認できませんでした。<br>📞 <b>0120-368-098</b> またはお問い合わせフォームからお気軽にご連絡ください！',
+        'Sorry, I couldn\'t find an answer to that.<br>Please contact us at 📞 <b>0120-368-098</b> or via our inquiry form!'
+      );
       return;
     }
 
@@ -683,27 +716,36 @@
       var sm = null;
       for (var k = 0; k < MACHINES.length; k++) { if (MACHINES[k].id === hit.showMachine) { sm = MACHINES[k]; break; } }
       if (sm) {
-        addBot(LANG === 'ja' ? '<b>' + sm.name.ja + '</b>についてご説明します。' : 'Here\'s the <b>' + sm.name.en + '</b> guide:');
+        addBot('<b>' + sm.name.ja + '</b>についてご説明します。', 'Here\'s the <b>' + sm.name.en + '</b> guide:');
         addMachineCard(sm);
+        setTimeout(function() {
+          addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+          addBodySelector();
+        }, 400);
       }
     } else if (hit.showMachines) {
-      if (hit.a_ja || hit.a_en) addBot(LANG === 'ja' ? hit.a_ja : hit.a_en);
+      if (hit.a_ja || hit.a_en) addBot(hit.a_ja, hit.a_en);
       hit.showMachines.forEach(function (id) {
         for (var k = 0; k < MACHINES.length; k++) { if (MACHINES[k].id === id) { addMachineCard(MACHINES[k]); break; } }
       });
+      setTimeout(function() {
+        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+        addBodySelector();
+      }, 400);
     } else if (hit.showBodySelector) {
-      addBot(LANG === 'ja' ? hit.a_ja : hit.a_en);
+      addBot(hit.a_ja, hit.a_en);
       addBodySelector();
     } else if (hit.showCardio) {
-      if (hit.a_ja || hit.a_en) addBot(LANG === 'ja' ? hit.a_ja : hit.a_en);
+      if (hit.a_ja || hit.a_en) addBot(hit.a_ja, hit.a_en);
       addCardioCard();
     } else {
-      addBot(LANG === 'ja' ? hit.a_ja : hit.a_en);
+      addBot(hit.a_ja, hit.a_en);
     }
 
     /* キャンペーン情報を料金カテゴリに自動付加 */
     if (hit.cat === 'pricing' && CAMPAIGN) {
-      addBot(LANG === 'ja'
+      MSG_HISTORY.push({t:'campaign'});
+      _renderBot(LANG === 'ja'
         ? '🎉 <b>現在のキャンペーン情報：</b><br>' + CAMPAIGN
         : '🎉 <b>Current Campaign:</b><br>' + CAMPAIGN);
     }
@@ -718,7 +760,10 @@
       }
     }
     if (related.length) {
-      addSuggs(related.map(function (r) { return LANG === 'ja' ? (r.q_ja || '') : (r.q_en || ''); }).filter(Boolean));
+      addSuggs(
+        related.map(function(r){ return r.q_ja || ''; }).filter(Boolean),
+        related.map(function(r){ return r.q_en || ''; }).filter(Boolean)
+      );
     }
   }
 
@@ -739,19 +784,34 @@
   }
 
   /* ── UI Helpers ───────────────────────────────────── */
+  /* ── User / Bot / Suggs ─────────────────────────────── */
   function addUser(text) {
+    MSG_HISTORY.push({t:'user', text:text});
+    _renderUser(text);
+  }
+  function _renderUser(text) {
     var el = mkDiv('ai-msg ai-msg--user');
     el.innerHTML = '<div class="ai-msg__bubble">' + esc(text) + '</div>';
     msgBody.appendChild(el); scroll();
   }
 
-  function addBot(html) {
+  function addBot(ja, en) {
+    var en2 = (en !== undefined) ? en : ja;
+    MSG_HISTORY.push({t:'bot', ja:ja, en:en2});
+    _renderBot(LANG === 'ja' ? ja : en2);
+  }
+  function _renderBot(html) {
     var el = mkDiv('ai-msg ai-msg--bot');
     el.innerHTML = '<div class="ai-msg__icon" aria-hidden="true">🤖</div><div class="ai-msg__bubble">' + html + '</div>';
     msgBody.appendChild(el); scroll();
   }
 
-  function addSuggs(qs) {
+  function addSuggs(ja_qs, en_qs) {
+    var en2 = en_qs || ja_qs;
+    MSG_HISTORY.push({t:'sugg', ja:ja_qs, en:en2});
+    _renderSuggs(LANG === 'ja' ? ja_qs : en2);
+  }
+  function _renderSuggs(qs) {
     var wrap = mkDiv('ai-suggest');
     qs.forEach(function (q) {
       if (!q) return;
@@ -766,6 +826,25 @@
       wrap.appendChild(b);
     });
     if (wrap.children.length) { msgBody.appendChild(wrap); scroll(); }
+  }
+
+  /* ── Re-render history on language switch ───────────── */
+  function reRenderHistory() {
+    msgBody.innerHTML = '';
+    MSG_HISTORY.forEach(function(entry) {
+      if      (entry.t === 'user')    { _renderUser(entry.text); }
+      else if (entry.t === 'bot')     { _renderBot(LANG === 'ja' ? entry.ja : entry.en); }
+      else if (entry.t === 'machine') { _renderMachineCard(entry.m); }
+      else if (entry.t === 'cardio')  { _renderCardioCard(); }
+      else if (entry.t === 'bodysel') { _renderBodySelector(); }
+      else if (entry.t === 'sugg')    { _renderSuggs(LANG === 'ja' ? entry.ja : entry.en); }
+      else if (entry.t === 'campaign' && CAMPAIGN) {
+        _renderBot(LANG === 'ja'
+          ? '🎉 <b>現在のキャンペーン情報：</b><br>' + CAMPAIGN
+          : '🎉 <b>Current Campaign:</b><br>' + CAMPAIGN);
+      }
+    });
+    scroll();
   }
 
   function mkDiv(cls)  { var el = document.createElement('div'); el.className = cls; return el; }
