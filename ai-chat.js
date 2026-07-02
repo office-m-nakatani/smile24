@@ -17,10 +17,27 @@
   function addBodySelectorOnScroll() {
     if (_scrollUnlock) { _scrollUnlock(); _scrollUnlock = null; }
     var triggered = false;
-    var timerId = setTimeout(function() {
+    // Wait one frame for DOM to settle after card append, then set up scroll detection
+    var tid = setTimeout(function() {
+      var baseTop = msgBody.scrollTop;
+      var needsScroll = msgBody.scrollHeight > msgBody.clientHeight + 80;
+      if (!needsScroll) {
+        // All content already visible — show after brief pause so user can see the card
+        var tid2 = setTimeout(function() {
+          if (triggered) return;
+          triggered = true;
+          _scrollUnlock = null;
+          addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+          addBodySelector();
+        }, 2500);
+        _scrollUnlock = function() { clearTimeout(tid2); };
+        return;
+      }
       function onScroll() {
         if (triggered) return;
-        if (msgBody.scrollTop + msgBody.clientHeight >= msgBody.scrollHeight - 60) {
+        var st = msgBody.scrollTop;
+        // Require user to have scrolled ≥40px from machine card top AND be near the bottom
+        if (st >= baseTop + 40 && st + msgBody.clientHeight >= msgBody.scrollHeight - 80) {
           triggered = true;
           msgBody.removeEventListener('scroll', onScroll);
           _scrollUnlock = null;
@@ -30,8 +47,8 @@
       }
       msgBody.addEventListener('scroll', onScroll);
       _scrollUnlock = function() { msgBody.removeEventListener('scroll', onScroll); };
-    }, 700);
-    _scrollUnlock = function() { clearTimeout(timerId); };
+    }, 200);
+    _scrollUnlock = function() { clearTimeout(tid); };
   }
 
   /* ── Machine Data ─────────────────────────────────── */
@@ -467,6 +484,218 @@
       keys_en: ['diet', 'nutrition', 'protein', 'food', 'what to eat'],
       a_ja: 'トレーニング効果を高めるために、<b>タンパク質を意識した食事</b>がおすすめです。<br>トレーニング後30分以内にタンパク質を摂ると効果的です。',
       a_en: 'For best results, focus on a <b>protein-rich diet</b>.<br>Consuming protein within 30 minutes after your workout is especially effective.'
+    },
+
+    /* ---------- Training Effects & Techniques (追加30問) ---------- */
+    {
+      cat: 'training',
+      keys_ja: ['ラットプルダウン 効果', 'ラット 効果', '広背筋 効果', '逆三角形 体', '背中 広がる'],
+      keys_en: ['lat pulldown effect', 'lat pulldown benefit', 'lats benefit', 'wide back'],
+      a_ja: '<b>ラットプルダウン</b>を継続すると、<b>広背筋・僧帽筋・上腕二頭筋</b>が鍛えられます。<br>背中が広がって<b>逆三角形のシルエット</b>が作られ、猫背の改善にも効果的です。',
+      a_en: 'The <b>Lat Pulldown</b> targets your <b>lats, trapezius, and biceps</b>.<br>It widens your back into a <b>V-taper</b> and helps correct rounded posture.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['シーテッドロウ 効果', 'ロウ 効果', '背中 引き締め', '菱形筋', '巻き肩 改善'],
+      keys_en: ['seated row effect', 'rowing benefit', 'back rowing result', 'rhomboid'],
+      a_ja: '<b>シーテッドロウ</b>は<b>広背筋・菱形筋・僧帽筋中部</b>を鍛えます。<br>巻き肩や猫背の改善に特に効果的で、背中の引き締めにもおすすめです。',
+      a_en: '<b>Seated Row</b> works your <b>lats, rhomboids, and mid-trapezius</b>.<br>It is especially effective at correcting rounded shoulders and hunched posture.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['レッグプレス 効果', 'レッグ 効果', '大腿四頭筋 鍛える', 'お尻 鍛える 効果', '脚 引き締め 効果'],
+      keys_en: ['leg press effect', 'leg press benefit', 'leg press result', 'quad training'],
+      a_ja: '<b>レッグプレス</b>は<b>大腿四頭筋・ハムストリング・臀筋（お尻）</b>を同時に鍛えます。<br>脚全体の引き締めやヒップアップに効果的で、日常生活の動作も楽になります。',
+      a_en: '<b>Leg Press</b> trains your <b>quads, hamstrings, and glutes</b> all at once.<br>Great for toning legs and lifting the glutes, while also making everyday movements easier.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['アブドミナルクランチ 効果', 'クランチ 効果', '腹直筋 効果', '腹筋 引き締め 効果', '腹筋マシン 効果'],
+      keys_en: ['crunch effect', 'ab crunch benefit', 'abdominal crunch result', 'abs machine benefit'],
+      a_ja: '<b>アブドミナルクランチ</b>は<b>腹直筋（お腹正面の筋肉）</b>を集中して鍛えます。<br>正しいフォームで行うことでシックスパックに近づき、体幹の安定にもつながります。',
+      a_en: '<b>Abdominal Crunch</b> isolates your <b>rectus abdominis</b> (front abs).<br>Done correctly, it develops six-pack definition and improves core stability.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['ロータリートルソー 効果', 'トルソー 効果', '腹斜筋 効果', 'くびれ 効果', 'わき腹 引き締め 効果'],
+      keys_en: ['rotary torso effect', 'torso machine benefit', 'oblique training result', 'waist training effect'],
+      a_ja: '<b>ロータリートルソー</b>は<b>腹斜筋（わき腹の筋肉）</b>を重点的に鍛えます。<br>ウエストのくびれ形成や体幹の安定性アップに効果的です。左右バランスよく行いましょう。',
+      a_en: '<b>Rotary Torso</b> targets your <b>obliques</b> (side abs).<br>Effective for creating a slimmer waistline and building core stability. Always train both sides equally.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['呼吸 筋トレ', '呼吸法', '息 吸う タイミング', '吸う 吐く トレーニング', '呼吸 やり方'],
+      keys_en: ['breathing workout', 'how to breathe exercise', 'inhale exhale training', 'breathing technique gym'],
+      a_ja: '筋トレ中の基本的な呼吸法は、<b>力を入れるとき（収縮時）に息を吐き</b>、<b>戻すときに吸う</b>です。<br>息を止めると血圧が上がりやすいので、呼吸を止めずに行いましょう。',
+      a_en: 'The basic rule: <b>exhale when exerting force</b> (the hard phase), <b>inhale on the return</b>.<br>Never hold your breath — it raises blood pressure. Keep breathing throughout the movement.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['何セット', 'セット数', 'セット 何回', '1日 何セット', 'セット どのくらい'],
+      keys_en: ['how many sets', 'number of sets', 'sets per exercise', 'sets per workout'],
+      a_ja: '初心者の方は<b>1種目あたり2〜3セット</b>から始めるのがおすすめです。<br>慣れてきたら<b>3〜4セット</b>に増やしましょう。セット間の休憩は<b>60〜90秒</b>が目安です。',
+      a_en: 'For beginners, start with <b>2-3 sets per exercise</b>.<br>As you progress, increase to <b>3-4 sets</b>. Rest <b>60-90 seconds</b> between sets.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['何回', 'レップ数', '回数', '1セット 何回', '何回 やれば'],
+      keys_en: ['how many reps', 'reps per set', 'repetitions', 'number of reps'],
+      a_ja: '目的によって異なります。<br>・<b>筋力アップ</b>：4〜6回（重め）<br>・<b>バランスよく鍛える</b>：8〜12回（中程度）<br>・<b>引き締め・持久力</b>：15〜20回（軽め）<br>初心者は<b>10〜15回</b>を目安にしましょう。',
+      a_en: 'It depends on your goal:<br>・<b>Strength</b>: 4-6 reps (heavy)<br>・<b>Balanced training</b>: 8-12 reps (moderate)<br>・<b>Toning/endurance</b>: 15-20 reps (light)<br>Beginners: aim for <b>10-15 reps</b>.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['重さ 設定', '重量 どのくらい', '重さ どれくらい', '重量 目安', '負荷 設定'],
+      keys_en: ['weight setting', 'how much weight', 'weight selection', 'load setting'],
+      a_ja: '目安は<b>10〜12回ギリギリできる重さ</b>から始めましょう。<br>最後の2〜3回がきつく感じる重さがちょうど良いです。軽すぎると効果が出にくく、重すぎるとフォームが崩れ怪我の原因になります。',
+      a_en: 'Start with a weight where <b>the last 2-3 reps of 10-12 feel challenging</b>.<br>Too light = less effect. Too heavy = poor form and injury risk.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['ウォーミングアップ', '準備運動', 'ストレッチ 前', '筋トレ 前 何する', '運動 前 準備'],
+      keys_en: ['warm up', 'pre workout stretch', 'before training', 'warm-up routine'],
+      a_ja: 'トレーニング前は<b>5〜10分の軽い有酸素運動</b>（ウォーキングや自転車など）で体を温めてから、<b>動的ストレッチ</b>を行うのがおすすめです。<br>冷えた筋肉を動かすと怪我のリスクが高まります。',
+      a_en: 'Before training, do <b>5-10 minutes of light cardio</b> (walking, cycling) to warm up, then <b>dynamic stretching</b>.<br>Moving cold muscles increases injury risk.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['クールダウン', 'ストレッチ 後', '筋トレ 後 何する', '運動 後 ストレッチ', '終わった後'],
+      keys_en: ['cool down', 'post workout stretch', 'after training', 'stretching after workout'],
+      a_ja: 'トレーニング後は<b>静的ストレッチ</b>でゆっくり筋肉を伸ばしましょう。<br>1ヶ所20〜30秒キープが目安です。血流が促進されて疲労回復が早まり、翌日の筋肉痛を和らげる効果もあります。',
+      a_en: 'After training, do <b>static stretching</b> — hold each stretch for 20-30 seconds.<br>This improves blood flow, speeds recovery, and reduces next-day soreness.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['水分補給', '水 飲む', 'トレーニング中 水', '水 どのくらい飲む', '飲み物'],
+      keys_en: ['hydration', 'drinking water workout', 'water during exercise', 'how much water'],
+      a_ja: 'トレーニング中は<b>こまめな水分補給</b>が大切です。<br>のどが渇く前に<b>150〜200ml</b>を目安に飲みましょう。当ジムには<b>ウォーターサーバー</b>を完備していますのでご利用ください。',
+      a_en: 'Stay hydrated throughout your workout — drink <b>150-200ml</b> regularly, before you feel thirsty.<br>Our gym has a <b>free water server</b> available for members.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['姿勢 改善', '姿勢 良くなる', '猫背 治す', '猫背 改善', '姿勢 筋トレ'],
+      keys_en: ['posture improvement', 'fix posture', 'fix hunchback', 'posture training', 'improve posture'],
+      a_ja: '姿勢改善には<b>ラットプルダウン</b>と<b>シーテッドロウ</b>が特に効果的です。<br>背面の筋肉（広背筋・菱形筋）を鍛えることで肩が引き戻され、自然と背筋が伸びるようになります。',
+      a_en: 'For posture improvement, <b>Lat Pulldown</b> and <b>Seated Row</b> are most effective.<br>Strengthening the back muscles (lats, rhomboids) pulls the shoulders back for a naturally upright posture.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['肩こり 改善', '肩こり 筋トレ', '肩こり 解消', '肩 こり マシン', '肩甲骨 ほぐす'],
+      keys_en: ['shoulder stiffness', 'shoulder tension relief', 'stiff shoulders exercise', 'shoulder pain training'],
+      a_ja: '肩こりの改善には<b>シーテッドロウ</b>がおすすめです。<br>肩甲骨まわりの筋肉（菱形筋・僧帽筋）を動かすことで血行が促進されます。有酸素マシンで体全体の血流を上げるのも効果的です。',
+      a_en: '<b>Seated Row</b> is recommended for shoulder stiffness.<br>Moving the muscles around your shoulder blades improves circulation. Light cardio also helps boost overall blood flow.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['腰痛 筋トレ', '腰痛 大丈夫', '腰 痛い', '腰痛 対策', '腰 鍛える'],
+      keys_en: ['lower back pain exercise', 'back pain training', 'bad back workout', 'lumbar training'],
+      a_ja: '軽度の腰痛がある場合は、痛みが強い日は無理せず休みましょう。<br>腰痛予防・改善には<b>体幹強化（ロータリートルソー・クランチ）</b>と<b>レッグプレス</b>で脚の筋力をつけることが効果的です。<br>痛みが続く場合は医師にご相談ください。',
+      a_en: 'If you have mild lower back pain, rest on bad days. For prevention and recovery, strengthen your core (<b>Rotary Torso, Crunch</b>) and legs (<b>Leg Press</b>).<br>Consult a doctor if pain persists.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['膝 悪い', '膝 痛い', '膝 負担', '膝 筋トレ', '膝 マシン'],
+      keys_en: ['knee pain exercise', 'bad knees workout', 'knee friendly', 'knee training'],
+      a_ja: '膝に不安がある場合は<b>シーテッドロウ</b>や<b>ラットプルダウン</b>など上半身マシンを中心にしましょう。<br><b>レッグプレス</b>は膝への負担が比較的少なく、太ももの筋力をつけることで膝を守る効果もあります。無理せず軽い重さから始めてください。',
+      a_en: 'With knee concerns, focus on upper-body machines like <b>Seated Row</b> and <b>Lat Pulldown</b>.<br><b>Leg Press</b> has relatively low knee stress and strengthening your quads can actually protect the knee. Start light.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['基礎代謝 上げる', '代謝 アップ', '基礎代謝 筋トレ', '太りにくい 体', '代謝 良くなる'],
+      keys_en: ['boost metabolism', 'increase metabolism', 'metabolic rate training', 'burn more calories'],
+      a_ja: '<b>筋肉量を増やすと基礎代謝が上がり</b>、安静時のカロリー消費量が増えます。<br>レッグプレスなど大きな筋肉群（脚・臀部）を鍛えると代謝アップ効果が高いです。筋トレ後は数時間代謝が高まる「アフターバーン効果」もあります。',
+      a_en: '<b>More muscle mass = higher metabolism</b>, meaning you burn more calories even at rest.<br>Training large muscle groups like legs and glutes (Leg Press) gives the biggest metabolic boost. Post-workout "afterburn" also keeps metabolism elevated for hours.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['体脂肪率 下げる', '脂肪 減らす', '体脂肪 落とす', '体脂肪率 改善', '体脂肪 筋トレ'],
+      keys_en: ['reduce body fat', 'lower body fat percentage', 'fat loss training', 'body fat reduction'],
+      a_ja: '体脂肪率を下げるには<b>筋トレ＋有酸素運動の組み合わせ</b>が最も効果的です。<br>筋トレで基礎代謝を上げ、有酸素マシン（トレッドミルなど）で脂肪を燃焼させるとダブルの効果が得られます。食事管理も合わせて行いましょう。',
+      a_en: 'The most effective approach: <b>weight training + cardio combined</b>.<br>Weights raise your metabolism; cardio (treadmill etc.) burns fat directly. Pair it with mindful eating for best results.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['有酸素 筋トレ 順番', '筋トレ 先 有酸素 後', '有酸素 先 筋トレ 後', 'どちらが先'],
+      keys_en: ['cardio before weights', 'weights before cardio', 'cardio vs weights order', 'which first'],
+      a_ja: '<b>ダイエット・脂肪燃焼</b>が目的なら「<b>筋トレ → 有酸素</b>」の順がおすすめです。<br>筋トレでグリコーゲンを消費してから有酸素を行うと、脂肪が燃えやすくなります。逆に体力向上が目的なら有酸素から始めても構いません。',
+      a_en: 'For <b>fat loss</b>: do <b>weights first, then cardio</b>.<br>Lifting depletes glycogen, making cardio more effective at burning fat afterward. For general fitness, either order works.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['有酸素 時間 どのくらい', '有酸素運動 何分', 'トレッドミル 時間', '有酸素 効果 時間'],
+      keys_en: ['cardio duration', 'how long cardio', 'treadmill time', 'cardio minutes'],
+      a_ja: '脂肪燃焼を目的とした有酸素運動は<b>20〜40分</b>が目安です。<br>開始後<b>約20分</b>から脂肪が燃えやすくなると言われています。無理なく続けられる強度（少し息が上がる程度）で行いましょう。',
+      a_en: 'For fat burning, aim for <b>20-40 minutes of cardio</b>.<br>Fat burning kicks in more efficiently after around <b>20 minutes</b>. Keep the intensity moderate — slightly breathless but still able to talk.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['休養日 いつ', '休む日 必要', '毎日 筋トレ', '筋トレ 休み 必要', '回復 日'],
+      keys_en: ['rest day', 'how often to rest', 'recovery day', 'should I rest', 'rest between workouts'],
+      a_ja: '筋肉は<b>休んでいる間に成長</b>します。同じ部位を鍛えた後は<b>48〜72時間の休養</b>を設けるのが理想的です。<br>毎日来館する場合は、当日は別の部位を鍛えるなど部位を分けると効果的です。',
+      a_en: 'Muscles <b>grow during rest</b>, not during training. Allow <b>48-72 hours</b> before targeting the same muscle group again.<br>If you visit daily, split muscle groups so each area gets adequate recovery time.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['同じ部位 毎日', '毎日 腹筋', '毎日 同じ マシン', '同じ 筋肉 毎日'],
+      keys_en: ['same muscle every day', 'train abs daily', 'daily same muscle', 'workout same area'],
+      a_ja: '同じ筋肉を<b>毎日鍛えるのはおすすめしません</b>。筋肉が修復・成長する時間が必要です。<br>腹筋は回復が比較的早いため週3〜4回なら問題ありませんが、大きな筋肉群（脚・背中）は少なくとも1日おきにしましょう。',
+      a_en: '<b>Training the same muscle daily is not recommended</b> — muscles need time to repair and grow.<br>Abs recover faster and can be trained 3-4 times a week, but larger groups (legs, back) need at least a day of rest between sessions.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['筋肉 つける コツ', '筋肉 増やす 方法', '筋肉量 アップ', 'マッスル アップ'],
+      keys_en: ['build muscle', 'muscle building tips', 'gain muscle', 'how to get bigger'],
+      a_ja: '筋肉をつけるには<b>①適切な負荷のトレーニング ②十分な休養 ③タンパク質を含む食事</b>の3つが重要です。<br>重さを少しずつ増やす「<b>漸進性過負荷の原則</b>」を意識すると効果的です。',
+      a_en: 'Building muscle requires <b>① proper training load ② adequate rest ③ protein-rich diet</b>.<br>Gradually increasing weight over time (progressive overload) is key to continued progress.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['体 引き締める', '引き締め', 'トーニング', '体 締める 筋トレ', 'しなやか な 体'],
+      keys_en: ['toning', 'body toning', 'tone up', 'lean body', 'slim and tone'],
+      a_ja: '体を引き締めるには<b>軽めの重さで回数多め（15〜20回）</b>のトレーニングと有酸素運動の組み合わせが効果的です。<br>当ジムの5種類のマシンは初心者でも引き締め目的に十分対応できます。',
+      a_en: 'For toning, use <b>lighter weights with higher reps (15-20)</b> combined with cardio.<br>All 5 machines at our gym are well-suited for toning goals, even for beginners.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['女性 筋トレ', '女性 マシン', '女性 おすすめ', 'レディース', '女性 向け'],
+      keys_en: ['women training', 'female workout', 'women gym', 'ladies training', 'women machines'],
+      a_ja: '女性の方に人気なのは、<b>ロータリートルソー（くびれ・腹斜筋）</b>・<b>アブドミナルクランチ（腹筋）</b>・<b>レッグプレス（ヒップアップ・美脚）</b>です。<br>筋肉ムキムキになる心配はなく、むしろしなやかな体づくりに最適です。',
+      a_en: 'Popular machines for women: <b>Rotary Torso</b> (waist/obliques), <b>Abdominal Crunch</b> (abs), <b>Leg Press</b> (glutes & legs).<br>No need to worry about getting bulky — these machines are ideal for achieving a lean, toned physique.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['高齢者 筋トレ', 'シニア', '年配 筋トレ', '60代 70代 筋トレ', 'お年寄り 筋トレ'],
+      keys_en: ['senior training', 'elderly workout', 'older adults gym', 'senior fitness'],
+      a_ja: 'シニアの方にも安全にご利用いただけます。<b>レッグプレス</b>で脚力を維持することは転倒予防に効果的です。<br>軽い負荷から始め、ご自身のペースで無理なく続けていただけます。マシン横の説明書きでいつでも確認できます。',
+      a_en: 'Seniors can use our gym safely. <b>Leg Press</b> maintains leg strength, which is effective for fall prevention.<br>Start light and work at your own pace. Usage guides are posted beside every machine.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['ストレス 解消', 'ストレス 発散', '気分転換', 'リフレッシュ', '精神的 効果'],
+      keys_en: ['stress relief', 'mental health exercise', 'mood boost workout', 'stress exercise'],
+      a_ja: '運動は<b>エンドルフィン（幸福ホルモン）</b>を分泌し、ストレス解消・気分向上に効果的です。<br>特に有酸素マシン（トレッドミルなど）は短時間でもリフレッシュ効果が高く、仕事帰りの気分転換におすすめです。',
+      a_en: 'Exercise releases <b>endorphins</b> that relieve stress and boost mood.<br>Cardio machines like the treadmill are especially effective for a quick mental refresh — perfect for unwinding after work.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['血行 改善', '血流 良くなる', '冷え性 改善', '血行 筋トレ', '血流 アップ'],
+      keys_en: ['blood circulation', 'improve circulation', 'cold hands feet exercise', 'circulation training'],
+      a_ja: '筋トレや有酸素運動を行うことで<b>血行が促進</b>され、全身に酸素・栄養が行き渡りやすくなります。<br>冷え性の改善や疲労回復にも効果的です。特に<b>レッグプレス</b>で下半身の血流を上げると全身循環が改善されます。',
+      a_en: 'Exercise <b>boosts circulation</b>, delivering more oxygen and nutrients throughout your body.<br>Effective for cold extremities and recovery. <b>Leg Press</b> is particularly good for improving lower-body circulation and overall flow.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['睡眠 改善', '睡眠 質 上がる', '眠れる', '不眠 改善', '睡眠 運動'],
+      keys_en: ['sleep improvement', 'better sleep exercise', 'insomnia workout', 'sleep quality training'],
+      a_ja: '適度な運動は<b>睡眠の質を高める</b>ことが研究で示されています。<br>トレーニング後は体温が徐々に下がり、自然と眠りに入りやすくなります。ただし就寝直前の激しい運動は逆効果になる場合があるため、<b>就寝2〜3時間前</b>までにトレーニングを終えるのが理想です。',
+      a_en: 'Regular exercise is proven to <b>improve sleep quality</b>.<br>Post-workout body temperature drop naturally eases you into sleep. However, intense exercise right before bed can be counterproductive — ideally finish training <b>2-3 hours before bedtime</b>.'
+    },
+    {
+      cat: 'training',
+      keys_ja: ['マシン 注意点', '安全 使い方', '怪我 しない', '安全 筋トレ', 'マシン 気をつける'],
+      keys_en: ['machine safety', 'safe training', 'avoid injury', 'gym safety tips', 'machine precautions'],
+      a_ja: '安全にお使いいただくためのポイントです。<br>①急に重い重量にしない<br>②フォームを崩してまでやらない<br>③体の異変を感じたら即中止<br>④マシン横のQRコードで正しい使い方を確認<br>ご不明な点はフリーダイヤル<b>0120-368-098</b>までお問い合わせください。',
+      a_en: 'Key safety points:<br>① Don\'t jump to heavy weights too soon<br>② Never sacrifice form to lift more<br>③ Stop immediately if something feels wrong<br>④ Check QR codes by each machine for correct usage<br>Questions? Call us at <b>0120-368-098</b>.'
     }
   ];
 
@@ -628,10 +857,7 @@
           'Machines that target <b>' + (pe ? pe.label.replace(/^[🔵🟢🟠🟡🟣]\s*/,'') : key) + '</b>:'
         );
         machines.forEach(function (m) { addMachineCard(m); });
-        setTimeout(function() {
-          addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
-          addBodySelector();
-        }, 400);
+        addBodySelectorOnScroll();
       }
     }
   }

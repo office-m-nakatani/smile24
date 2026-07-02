@@ -2343,11 +2343,12 @@ address { font-style: normal; }
 
 .ai-chat-panel {
   position: fixed;
+  top: 78px;
   bottom: 98px;
-  right: 20px;
-  width: min(900px, calc(100vw - 24px));
-  height: 580px;
-  max-height: calc(100vh - 120px);
+  right: 52px;
+  width: min(780px, calc(100vw - 104px));
+  height: auto;
+  max-height: none;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 24px 64px rgba(0,0,0,.18), 0 4px 16px rgba(0,0,0,.07);
@@ -2568,10 +2569,12 @@ address { font-style: normal; }
 /* Mobile adjustment */
 @media (max-width: 639px) {
   .ai-chat-panel {
+    top: auto;
     width: calc(100vw - 16px);
     right: 8px;
     bottom: 96px;
     height: 500px;
+    max-height: calc(100vh - 120px);
   }
   .ai-chat__hd { padding: 14px 16px; }
   .ai-chat__avatar { width: 40px; height: 40px; font-size: 20px; }
