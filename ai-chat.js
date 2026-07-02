@@ -17,18 +17,21 @@
   function addBodySelectorOnScroll() {
     if (_scrollUnlock) { _scrollUnlock(); _scrollUnlock = null; }
     var triggered = false;
-    function onScroll() {
-      if (triggered) return;
-      if (msgBody.scrollTop + msgBody.clientHeight >= msgBody.scrollHeight - 60) {
-        triggered = true;
-        msgBody.removeEventListener('scroll', onScroll);
-        _scrollUnlock = null;
-        addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
-        addBodySelector();
+    var timerId = setTimeout(function() {
+      function onScroll() {
+        if (triggered) return;
+        if (msgBody.scrollTop + msgBody.clientHeight >= msgBody.scrollHeight - 60) {
+          triggered = true;
+          msgBody.removeEventListener('scroll', onScroll);
+          _scrollUnlock = null;
+          addBot('他にも気になる部位はありますか？', 'Curious about other muscle groups?');
+          addBodySelector();
+        }
       }
-    }
-    msgBody.addEventListener('scroll', onScroll);
-    _scrollUnlock = function() { msgBody.removeEventListener('scroll', onScroll); };
+      msgBody.addEventListener('scroll', onScroll);
+      _scrollUnlock = function() { msgBody.removeEventListener('scroll', onScroll); };
+    }, 700);
+    _scrollUnlock = function() { clearTimeout(timerId); };
   }
 
   /* ── Machine Data ─────────────────────────────────── */
@@ -320,8 +323,16 @@
       q_ja: '解約はいつでもできますか？', q_en: 'Can I cancel anytime?',
       keys_ja: ['解約', '退会', 'やめる', '縛り', '違約金', '退会 方法', '解約 方法'],
       keys_en: ['cancel', 'quit', 'leave', 'contract term', 'cancellation', 'no contract'],
-      a_ja: '最低利用期間の縛りは<b>ありません</b>。いつでもお気軽に退会いただけます。',
-      a_en: 'There is <b>no minimum contract period</b>. You can cancel anytime with no penalty.'
+      a_ja: '最低利用期間の縛りは<b>ありません</b>。いつでも退会いただけます（ただし、キャンペーン入会時は除く）。<br>なお、当ジムは<b>前払い制</b>のため、退会月の月末までご利用いただけます。',
+      a_en: 'There is <b>no minimum contract period</b>. You can cancel anytime (campaign sign-ups may have different terms).<br>As we use a <b>prepaid billing system</b>, you can continue using the gym until the end of the month you cancel.'
+    },
+    {
+      cat: 'pricing',
+      q_ja: '月の途中で解約した場合は？', q_en: 'What if I cancel mid-month?',
+      keys_ja: ['途中 解約', '月途中 退会', '前払い', '退会月', '月末 まで', '解約 日割り', '解約 返金'],
+      keys_en: ['cancel mid-month', 'prepaid', 'refund cancel', 'cancel before end', 'partial month cancel'],
+      a_ja: '当ジムは<b>前払い制</b>を採用しております。月の途中で退会された場合も、<b>退会月の月末まで</b>ご利用いただけます。<br>日割りでの返金はございませんのでご了承ください。',
+      a_en: 'We use a <b>prepaid billing system</b>. Even if you cancel mid-month, you can continue using the gym <b>until the end of that month</b>.<br>Please note that partial-month refunds are not available.'
     },
     {
       cat: 'pricing',
@@ -416,16 +427,16 @@
       q_ja: '初心者でも大丈夫ですか？', q_en: 'Is it OK for beginners?',
       keys_ja: ['初心者', 'はじめて', '初めて', 'ビギナー', '経験 ない', '初めてジム', '運動 苦手'],
       keys_en: ['beginner', 'first time', 'new', 'starter', 'never worked out', 'no experience'],
-      a_ja: 'もちろん大丈夫です！<br>ご入会時にスタッフが<b>全マシンの使い方を丁寧にご説明</b>します。<br>何でもお気軽にスタッフへお声がけください😊',
-      a_en: 'Absolutely! When you join, our staff will give you a <b>full machine orientation</b>.<br>Feel free to ask staff any questions at any time 😊'
+      a_ja: 'もちろん大丈夫です！<br>各マシンの横には<b>使い方の説明書きとQRコード</b>を掲示しており、スマートフォンでいつでも使い方を確認できます。<br>初めてでも安心してご利用いただけます😊',
+      a_en: 'Absolutely! <b>Usage guides and QR codes</b> are posted beside each machine so you can check how to use them anytime with your smartphone.<br>First-timers are very welcome 😊'
     },
     {
       cat: 'training',
       q_ja: '週に何回通うのがいいですか？', q_en: 'How often should I go?',
       keys_ja: ['週 何回', '頻度', '通う 頻度', '何回 来ればいい', '週 何日'],
       keys_en: ['how often', 'frequency', 'how many times', 'per week', 'days per week'],
-      a_ja: '初めての方は<b>週2〜3回</b>からのスタートがおすすめです。<br>慣れてきたら週3〜4回を目標にしましょう！',
-      a_en: 'For beginners, starting with <b>2-3 times per week</b> is ideal.<br>As you progress, aim for 3-4 times per week!'
+      a_ja: 'ライフスタイルに合わせてご来店いただければ大丈夫です！<br>お仕事帰りに<b>毎日10分だけ</b>という方も、<b>週に1回1時間</b>じっくり取り組む方もいます。<br>無理のないペースで長く続けることが何より大切です😊',
+      a_en: 'Come at whatever pace fits your lifestyle!<br>Some members stop in for <b>10 minutes every day after work</b>, while others come for <b>1 hour once a week</b>.<br>The key is finding a sustainable pace you can keep up long-term 😊'
     },
     {
       cat: 'training',
