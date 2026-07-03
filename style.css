@@ -8,36 +8,36 @@
    CSS カスタムプロパティ（テーマ変数）
    ======================================== */
 :root {
-  /* ブランドカラー */
-  --clr-primary:       #FF8547;
-  --clr-primary-dark:  #E86830;
-  --clr-primary-light: #FFF2EB;
-  --clr-secondary:     #FFB07A;
-  --clr-accent:        #FFD4AA;
-  --clr-cta:           #FF5A1F;
-  --clr-cta-dark:      #E0440E;
+  /* ブランドカラー（アプリコット×テラコッタ — 大人の女性向けの温かく洗練されたオレンジ） */
+  --clr-primary:       #F08B5C;
+  --clr-primary-dark:  #D96A3B;
+  --clr-primary-light: #FCF1E9;
+  --clr-secondary:     #F5B48C;
+  --clr-accent:        #F8D5B8;
+  --clr-cta:           #EC6A38;
+  --clr-cta-dark:      #D14F1F;
   --clr-line:          #06C755;
   --clr-line-dark:     #00A846;
 
   /* テキスト */
-  --clr-text:       #1A1A2E;
-  --clr-text-mid:   #5A4E45;
-  --clr-text-light: #9A8E87;
+  --clr-text:       #3B322C;
+  --clr-text-mid:   #6B5D52;
+  --clr-text-light: #A0938A;
   --clr-white:      #FFFFFF;
 
-  /* 背景 */
+  /* 背景（白×ベージュベースで清潔感） */
   --clr-bg:      #FFFFFF;
-  --clr-bg-gray: #FFF8F3;
-  --clr-bg-tint: #FFF0E6;
+  --clr-bg-gray: #FAF5EF;
+  --clr-bg-tint: #F9EDE3;
 
   /* ボーダー */
-  --clr-border: #FFE2CC;
+  --clr-border: #F1DECB;
 
   /* シャドウ */
-  --shadow-sm:   0 2px 8px rgba(180,60,0,.07);
-  --shadow-md:   0 4px 20px rgba(180,60,0,.10);
-  --shadow-lg:   0 8px 40px rgba(180,60,0,.14);
-  --shadow-cta:  0 4px 20px rgba(255,90,30,.30);
+  --shadow-sm:   0 2px 8px rgba(180,90,40,.07);
+  --shadow-md:   0 4px 20px rgba(180,90,40,.10);
+  --shadow-lg:   0 8px 40px rgba(180,90,40,.14);
+  --shadow-cta:  0 4px 20px rgba(236,106,56,.28);
   --shadow-line: 0 4px 20px rgba(6,199,85,.25);
 
   /* フォント */
@@ -226,7 +226,7 @@ address { font-style: normal; }
 
 /* CTA（オレンジ） */
 .btn--cta {
-  background: linear-gradient(135deg, var(--clr-cta) 0%, #FF8C42 100%);
+  background: linear-gradient(135deg, var(--clr-cta) 0%, var(--clr-primary) 100%);
   color: var(--clr-white);
   box-shadow: var(--shadow-cta);
   animation: ctaPulse 2.5s ease infinite;
@@ -510,7 +510,7 @@ address { font-style: normal; }
   justify-content: center;
   margin-top: 24px;
   padding: 14px 28px;
-  background: linear-gradient(135deg, var(--clr-cta), #FF8C42);
+  background: linear-gradient(135deg, var(--clr-cta), var(--clr-primary));
   color: var(--clr-white) !important;
   border-radius: var(--radius-pill);
   font-weight: 700;
@@ -655,6 +655,29 @@ address { font-style: normal; }
   gap: 14px;
 }
 
+/* 安心ポイントバッジ（30〜40代女性向け訴求） */
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.92);
+  color: var(--clr-primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  box-shadow: 0 3px 12px rgba(0,0,0,.12);
+  backdrop-filter: blur(4px);
+}
+.hero-badge__icon { font-size: 15px; line-height: 1; }
+
 /* 会員マイページリンク */
 .hero__member-link {
   margin-top: 18px;
@@ -673,6 +696,71 @@ address { font-style: normal; }
 
 .hero__member-link a:hover {
   color: rgba(255, 255, 255, .95);
+}
+
+/* ========================================
+   今日は何の日（ユーモアウィジェット）
+   ======================================== */
+.today {
+  padding-block: 48px;
+  background: var(--clr-bg-tint);
+}
+.today-card {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px 26px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+}
+.today-card__label {
+  display: inline-block;
+  padding: 5px 18px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 16px;
+}
+.today-card__title {
+  font-size: clamp(18px, 3.4vw, 23px);
+  font-weight: 700;
+  color: var(--clr-primary-dark);
+  letter-spacing: .03em;
+  margin-bottom: 12px;
+}
+.today-card__text {
+  font-size: clamp(13.5px, 2.4vw, 15px);
+  line-height: 1.95;
+  color: var(--clr-text-mid);
+  margin-bottom: 18px;
+}
+.today-card__shuffle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 22px;
+  border: 1.5px solid var(--clr-secondary);
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--clr-primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.today-card__shuffle:hover {
+  background: var(--clr-primary-light);
+  transform: translateY(-2px);
+}
+@media (max-width: 639px) {
+  .today { padding-block: 32px; }
+  .today-card { padding: 24px 20px 22px; }
 }
 
 /* スクロールインジケーター */
@@ -783,6 +871,26 @@ address { font-style: normal; }
 .reason-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+}
+
+/* 女性向け強調カード */
+.reason-card--pick {
+  position: relative;
+  background: linear-gradient(160deg, #FFF9F3 0%, var(--clr-primary-light) 100%);
+  border: 2px solid var(--clr-secondary);
+}
+.reason-card__badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  box-shadow: 0 3px 10px rgba(217,106,59,.32);
 }
 
 .reason-card__icon {
@@ -2320,7 +2428,7 @@ address { font-style: normal; }
   width: 160px;
   height: 62px;
   border-radius: 31px;
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #E86830 100%);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
   border: none;
   cursor: pointer;
   box-shadow: 0 6px 24px rgba(255,133,71,.50), 0 2px 8px rgba(0,0,0,.15);
@@ -2370,7 +2478,7 @@ address { font-style: normal; }
 
 /* Header */
 .ai-chat__hd {
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #E86830 100%);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
   padding: 18px 24px;
   display: flex;
   align-items: center;
@@ -2445,7 +2553,7 @@ address { font-style: normal; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--clr-primary), #E86830);
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2465,7 +2573,7 @@ address { font-style: normal; }
   color: #333;
 }
 .ai-msg--user .ai-msg__bubble {
-  background: linear-gradient(135deg, var(--clr-primary), #E86830);
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
   border-radius: 18px 4px 18px 18px;
   color: #fff;
 }
@@ -2522,7 +2630,7 @@ address { font-style: normal; }
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--clr-primary), #E86830);
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
   border: none;
   cursor: pointer;
   display: flex;

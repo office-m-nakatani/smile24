@@ -696,11 +696,64 @@
       keys_en: ['machine safety', 'safe training', 'avoid injury', 'gym safety tips', 'machine precautions'],
       a_ja: '安全にお使いいただくためのポイントです。<br>①急に重い重量にしない<br>②フォームを崩してまでやらない<br>③体の異変を感じたら即中止<br>④マシン横のQRコードで正しい使い方を確認<br>ご不明な点はフリーダイヤル<b>0120-368-098</b>までお問い合わせください。',
       a_en: 'Key safety points:<br>① Don\'t jump to heavy weights too soon<br>② Never sacrifice form to lift more<br>③ Stop immediately if something feels wrong<br>④ Check QR codes by each machine for correct usage<br>Questions? Call us at <b>0120-368-098</b>.'
+    },
+
+    /* ---------- お悩み診断（30〜40代女性向け） ---------- */
+    {
+      cat: 'concern',
+      keys_ja: ['お腹まわりや後ろ姿', 'シルエットが気になる', 'お腹まわり', '後ろ姿', 'ぽっこり', 'たるみ', 'ボディライン'],
+      keys_en: ['belly and backside', 'silhouette', 'body shape concern', 'sagging'],
+      a_ja: '年齢とともに気になりますよね…でも大丈夫！<b>お尻とお腹は裏切りません</b>。<br>まずは当ジム自慢の『<b>MATRIXの筋トレマシン</b>』で軽い負荷から始めてみませんか？特に<b>ラットプルダウン（背中）</b>や<b>レッグプレス（足・お尻）</b>がおすすめ。<br>後ろ姿が引き締まると、いつものジーンズが驚くほど綺麗に穿けるようになりますよ！<br>まずは<b>週1回、15分</b>から始めてみましょう♪',
+      a_en: 'It happens to all of us with age — but don\'t worry! <b>Your glutes and abs never betray you.</b><br>Start light on our <b>MATRIX machines</b> — especially the <b>Lat Pulldown</b> (back) and <b>Leg Press</b> (legs & glutes).<br>Once your backside firms up, your favorite jeans will fit beautifully again!<br>Start with just <b>15 minutes, once a week</b> ♪'
+    },
+    {
+      cat: 'concern',
+      keys_ja: ['イライラ・ストレス', 'サクッと発散', 'イライラ', 'ストレスを発散', 'ストレス発散', 'モヤモヤ'],
+      keys_en: ['stress relief quick', 'frustration', 'blow off steam', 'work stress family'],
+      a_ja: '毎日本当にお疲れ様です！イライラは体に溜め込まず、<b>ジムで汗と一緒に流しちゃいましょう</b>。<br>おすすめは『<b>トレッドミル（ランニングマシン）</b>』で好きな音楽を聴きながら、ちょっと早歩きやランニングをすること。<br><b>20分</b>もすれば脳内から幸せホルモンが出て、モヤモヤがすっきり吹き飛びますよ。<br>スマイル24は24時間いつでも逃げ込める<b>あなたの秘密基地</b>です！',
+      a_en: 'You work so hard every day! Don\'t bottle up that stress — <b>sweat it out at the gym</b>.<br>Try the <b>treadmill</b> with your favorite music: a brisk walk or light jog.<br>In just <b>20 minutes</b>, happy hormones kick in and the frustration melts away.<br>Smile24 is your <b>24-hour secret hideout</b>, always open when you need it!'
+    },
+    {
+      cat: 'concern',
+      keys_ja: ['肩こりや腰痛', '冷え性をなんとかして', '体を軽くしたい', '肩こり', '腰痛', '冷え性', 'バキバキ'],
+      keys_en: ['stiff shoulders back pain', 'cold sensitivity', 'feel lighter', 'body stiffness'],
+      a_ja: 'デスクワークや毎日の家事で体はバキバキですよね。ガチガチの体を放置すると代謝も落ちてしまいます。<br>まずはトレーニング前の『<b>広々としたストレッチエリア</b>』でしっかり体を伸ばすことから始めましょう。<br>その後、<b>軽い有酸素運動</b>で血行を良くするだけで、肩や腰が驚くほど軽くなります。<br>無料の<b>ウォーターサーバー</b>でお水をしっかり飲みながら、デトックスしていきましょう！',
+      a_en: 'Desk work and daily chores leave your body stiff as a board — and stiffness slows your metabolism.<br>Start by stretching in our <b>spacious stretch area</b> before training.<br>Then some <b>light cardio</b> to boost circulation — your shoulders and back will feel amazingly lighter.<br>Stay hydrated at our <b>free water server</b> and detox as you go!'
+    },
+    {
+      cat: 'concern',
+      keys_ja: ['何年もしてない超初心者', 'マシンの使い方も不安', '超初心者', '運動なんて何年も', '何年もしてない'],
+      keys_en: ['total beginner years', 'nervous about machines', 'havent exercised in years'],
+      a_ja: '<b>大歓迎です！</b>スマイル24に通う多くの方が、実は同じ不安を持ってスタートしています。<br>館内のマシンには全て<b>丁寧な使い方の説明</b>がありますし、この<b>AIアシスタント</b>や<b>公式LINE</b>でもいつでも確認できます。<br>まずは室内用シューズを持って、<b>無料見学・体験</b>から始めてみませんか？<br>最初は『マシンのシートに座ってみるだけ』でも大きな一歩です！',
+      a_en: '<b>You are so welcome!</b> Most of our members started with the exact same worries.<br>Every machine has <b>clear instructions</b> posted, and you can always ask this <b>AI assistant</b> or our <b>official LINE</b>.<br>Why not start with a <b>free tour & trial</b>? Just bring indoor shoes.<br>Even "just sitting on a machine" is a big first step!'
+    },
+    {
+      cat: 'concern',
+      keys_ja: ['まとまった時間が取れない', '20〜30分しかいられない', '意味ある', 'スキマ時間', '時間がない', '短い時間でも'],
+      keys_en: ['only 20-30 minutes', 'short workout worth it', 'no time', 'busy schedule gym'],
+      a_ja: '<b>めちゃくちゃ意味あります！</b>むしろ30代・40代の忙しい女性には、<b>20〜30分の『サクッとジム』</b>が一番続きます。<br>仕事帰りや買い物のついでに<b>15分だけランニングマシンを歩く</b>、それだけで年間を通せば大きな健康・ダイエット効果になります。<br>24時間いつでも開いているので、あなたの生活リズムを崩さずに<b>スキマ時間を有効活用</b>できますよ！',
+      a_en: '<b>Absolutely worth it!</b> For busy women in their 30s-40s, a <b>quick 20-30 minute session</b> is actually the most sustainable.<br>Just <b>15 minutes of walking</b> on the treadmill after work or errands adds up to major health benefits over a year.<br>Open 24 hours, so you can use those <b>pockets of spare time</b> without disrupting your routine!'
     }
   ];
 
   /* ── Category Suggestions ──────────────────────────── */
   var CAT_SUGG = {
+    concern: {
+      ja: [
+        '最近、お腹まわりや後ろ姿（お尻）のシルエットが気になる…',
+        '仕事や家事、育児のイライラ・ストレスをサクッと発散したい！',
+        'ひどい肩こりや腰痛、冷え性をなんとかして体を軽くしたい',
+        '運動なんて何年もしてない超初心者。マシンの使い方も不安…',
+        'まとまった時間が取れない。1回20〜30分しかいられないけど意味ある？'
+      ],
+      en: [
+        'My belly and backside silhouette bother me lately…',
+        'I want quick stress relief from work, chores and parenting!',
+        'Stiff shoulders, back pain and cold sensitivity — I want to feel lighter',
+        'Total beginner, haven\'t exercised in years. Nervous about machines…',
+        'I only have 20-30 minutes per visit. Is that even worth it?'
+      ]
+    },
     pricing: {
       ja: ['月額はいくらですか？', '入会金はいくらですか？', '月の途中で入会した場合は？', '解約はいつでもできますか？', '無料見学・体験はできますか？'],
       en: ['What is the monthly fee?', 'Is there a registration fee?', 'Can I join mid-month?', 'Can I cancel anytime?', 'Is a free tour available?']
@@ -764,6 +817,7 @@
     if (hdName) hdName.textContent = LANG === 'ja' ? 'スマイル24 AIアシスタント' : 'Smile24 AI Assistant';
     if (hdSub)  hdSub.textContent  = LANG === 'ja' ? 'ご質問にお答えします'      : 'How can I help you?';
     var labels = {
+      concern:  { ja: '💭 お悩み診断',    en: '💭 Concerns' },
       machine:  { ja: '🤖 機材・マシン', en: '🤖 Equipment' },
       pricing:  { ja: '💰 料金・入会',    en: '💰 Pricing' },
       facility: { ja: '🏠 施設・利用',    en: '🏠 Facility' },
@@ -779,12 +833,12 @@
   /* ── Welcome ──────────────────────────────────────── */
   function welcome() {
     addBot(
-      'こんにちは！<b>スマイル24 AIアシスタント</b>です🤖<br>ご質問をどうぞ！カテゴリから選ぶか、気になることを入力してください。',
-      'Hello! I\'m the <b>Smile24 AI Assistant</b> 🤖<br>Ask me anything! Pick a category or type your question below.'
+      'こんにちは！<b>スマイル24 AIアシスタント</b>です🤖<br>「<b>💭 お悩み診断</b>」では、あなたのお悩みにぴったりのジムの過ごし方をご提案します♪<br>ご質問はカテゴリから選ぶか、気になることを入力してください。',
+      'Hello! I\'m the <b>Smile24 AI Assistant</b> 🤖<br>Try <b>💭 Concerns</b> for a personalized suggestion, or pick a category / type your question below.'
     );
     addSuggs(
-      ['どのような機材がありますか？', '月額はいくらですか？', '月の途中で入会した場合は？', '無料見学はできますか？'],
-      ['What machines do you have?', 'What is the monthly fee?', 'Can I join mid-month?', 'Is a free tour available?']
+      ['運動なんて何年もしてない超初心者。マシンの使い方も不安…', 'どのような機材がありますか？', '月額はいくらですか？', '無料見学はできますか？'],
+      ['Total beginner, haven\'t exercised in years. Nervous about machines…', 'What machines do you have?', 'What is the monthly fee?', 'Is a free tour available?']
     );
   }
 
@@ -800,6 +854,14 @@
         delayedRespond(function () {
           addBot('<b>どの部位を鍛えたいですか？</b>以下から選んでください。', '<b>Which body part would you like to train?</b> Choose below.');
           addBodySelector();
+        });
+      } else if (cat === 'concern') {
+        delayedRespond(function () {
+          addBot(
+            '毎日おつかれさまです😊 <b>あてはまるお悩み</b>を選んでください。<br>あなたにぴったりのジムの過ごし方をご提案します♪',
+            'You\'re doing great every day 😊 <b>Pick the concern that fits you</b> — I\'ll suggest the perfect way to spend your gym time ♪'
+          );
+          addSuggs(CAT_SUGG.concern.ja, CAT_SUGG.concern.en);
         });
       } else {
         var JA_CAT = {pricing:'料金・入会', facility:'施設・利用', training:'トレーニング'};

@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20260702b">
+  <link rel="stylesheet" href="style.css?v=20260704a">
 
   <!-- 構造化データ (JSON-LD) -->
   <script type="application/ld+json">
@@ -163,15 +163,21 @@
         </p>
 
         <h1 class="hero__title fade-in fade-delay-1">
-          あなたらしく、<br>
-          無理なく続く<br>
-          24時間ジム
+          忙しい毎日に、<br>
+          15分だけの<br>
+          ご褒美リフレッシュ。
         </h1>
 
         <p class="hero__subtitle fade-in fade-delay-2">
-          仕事帰りも、家族の時間も大切にしながら。<br>
-          自分のペースで続けられる、さぬき市のジム。
+          仕事も家事も育児も、いったんおやすみ。<br>
+          運動が苦手でも大丈夫。さぬき市で一番<b>“やさしい”</b>24時間ジムです。
         </p>
+
+        <div class="hero__badges fade-in fade-delay-2">
+          <span class="hero-badge"><span class="hero-badge__icon">🔒</span>女性も安心のセキュリティ</span>
+          <span class="hero-badge"><span class="hero-badge__icon">✨</span>毎日清掃・常に清潔</span>
+          <span class="hero-badge"><span class="hero-badge__icon">🌱</span>初心者でも安心</span>
+        </div>
 
         <div class="hero__cta fade-in fade-delay-3">
           <a href="#contact" class="btn btn--cta btn--lg">
@@ -188,6 +194,21 @@
 
 
     <!-- ===========================
+         ①' 今日は何の日？（ユーモアウィジェット）
+         =========================== -->
+    <section class="today" id="today" aria-label="今日は何の日">
+      <div class="container">
+        <div class="today-card fade-in-up">
+          <p class="today-card__label">🗓 今日は何の日？</p>
+          <h3 class="today-card__title" id="todayTitle"></h3>
+          <p class="today-card__text" id="todayText"></p>
+          <button type="button" class="today-card__shuffle" id="todayShuffle">🔀 別の「何の日」も見てみる</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
          ② 選ばれる理由
          =========================== -->
     <section class="section reasons" id="reasons" aria-labelledby="reasons-title">
@@ -196,7 +217,7 @@
         <div class="section-header fade-in-up">
           <p class="section-label">Why Choose Us</p>
           <h2 class="section-title" id="reasons-title">スマイル24が<br class="sp-only">選ばれる理由</h2>
-          <p class="section-desc">24時間いつでも通えるフィットネスジムで、あなたの理想のライフスタイルをサポートします。</p>
+          <p class="section-desc">仕事・家事・育児で忙しいあなたでも、「ここなら通えそう」と思える理由があります。自分のペースで、きれいに、安心して。</p>
         </div>
 
         <div class="reasons__grid">
@@ -209,28 +230,31 @@
             <p class="reason-card__text">早朝・深夜・休日も関係なし。仕事帰りや生活スタイルに合わせて、自由に通えます。</p>
           </div>
 
-          <div class="reason-card fade-in-up">
+          <div class="reason-card reason-card--pick fade-in-up">
+            <span class="reason-card__badge">女性に人気</span>
             <div class="reason-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3 class="reason-card__title">女性も安心のセキュリティ</h3>
-            <p class="reason-card__text">会員証による入退室管理と防犯カメラを完備。女性おひとりでも安心してご利用いただけます。</p>
+            <p class="reason-card__text">完全メンバー制の入退室管理と、死角のない防犯カメラを完備。深夜でも、女性おひとりでも安心してご利用いただけます。</p>
           </div>
 
-          <div class="reason-card fade-in-up">
+          <div class="reason-card reason-card--pick fade-in-up">
+            <span class="reason-card__badge">きれいで快適</span>
             <div class="reason-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
             <h3 class="reason-card__title">毎日清掃・常に清潔</h3>
-            <p class="reason-card__text">スタッフが毎日丁寧に清掃。マシンも床もいつもピカピカ。気持ちのいい環境で思い切りトレーニングできます。</p>
+            <p class="reason-card__text">スタッフが毎日丁寧に清掃。マシンも床もいつもピカピカだから、初めての方も気持ちよくスタートできます。</p>
           </div>
 
-          <div class="reason-card fade-in-up">
+          <div class="reason-card reason-card--pick fade-in-up">
+            <span class="reason-card__badge">初心者OK</span>
             <div class="reason-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
             </div>
-            <h3 class="reason-card__title">本格マシン充実</h3>
-            <p class="reason-card__text">プロ仕様のMATRIXマシン、トレッドミル、ダンベル各種（1.5kg〜）など本格設備が揃います。有酸素も筋トレも思いのまま。</p>
+            <h3 class="reason-card__title">本格マシンも、初心者でも安心</h3>
+            <p class="reason-card__text">プロ仕様のMATRIXマシンやトレッドミル、ダンベル（1.5kg〜）を完備。全マシンに<b>使い方ガイド＆QRコード</b>付きだから、初めての方も迷いません。</p>
           </div>
 
           <div class="reason-card fade-in-up">
@@ -1125,7 +1149,7 @@
     </button>
   </div>
 
-  <script src="script.js?v=20260630c"></script>
+  <script src="script.js?v=20260704a"></script>
 
   <!-- AI相談チャット -->
   <button class="ai-chat-btn" id="aiChatBtn" aria-label="AI相談を開く" aria-expanded="false">
@@ -1152,6 +1176,7 @@
 
     <!-- Category Buttons -->
     <div class="ai-chat__cats">
+      <button class="ai-chat__cat-btn" data-cat="concern">💭 お悩み診断</button>
       <button class="ai-chat__cat-btn" data-cat="machine">🏋️ 機材・マシン</button>
       <button class="ai-chat__cat-btn" data-cat="pricing">💰 料金・入会</button>
       <button class="ai-chat__cat-btn" data-cat="facility">🏠 施設・利用</button>
@@ -1167,6 +1192,6 @@
     </div>
   </div>
 
-  <script src="ai-chat.js?v=20260702d"></script>
+  <script src="ai-chat.js?v=20260704a"></script>
 </body>
 </html>
