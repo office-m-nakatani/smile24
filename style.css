@@ -2299,7 +2299,7 @@ address { font-style: normal; }
   /* Flow 横並び */
   .flow__steps {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
   }
 
@@ -2313,9 +2313,16 @@ address { font-style: normal; }
   .flow-step:hover { transform: translateY(-4px); }
   .flow-step__num { margin-bottom: 14px; }
 
+  .flow-step__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .flow-step__link { margin-top: auto; padding-top: 10px; }
+
   .flow-step__arrow {
     flex-shrink: 0;
-    margin-top: 60px;
     padding: 0 8px;
     transform: rotate(-90deg);
   }
