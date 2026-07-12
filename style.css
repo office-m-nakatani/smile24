@@ -2425,6 +2425,16 @@ address { font-style: normal; }
   .insta-side { top: auto; bottom: 100px; transform: none; padding: 10px 8px; }
 }
 
+/* モバイル〜タブレット: LINE・電話フロートを左下へ移動（AI相談ボタンとの重なり防止） */
+@media (max-width: 1023px) {
+  .line-float { left: 14px; right: auto; }
+  .line-float--tel { left: 14px; right: auto; bottom: 78px; }
+}
+@media (max-width: 639px) {
+  .page-top { bottom: 96px; }
+  .insta-side { bottom: 170px; }
+}
+
 /* ========================================
    AI相談チャット
    ======================================== */

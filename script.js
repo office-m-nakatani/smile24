@@ -574,40 +574,68 @@ function initDayToast() {
     { title: '何でもない日', text: '思い立ったが吉日。今日ジムに行くと、プロテインがいつもより3倍おいしく感じられる特別な日です。' },
   ];
 
+
+  /* その日のネタ10連発：1つ目は日付固有ネタ、残り9つはその日の記念日にちなんだバリエーション。
+     日付シードで選ぶため「今日のネタ」は1日固定、日が変わると入れ替わる（365日×10ネタ） */
+  const JOKE_TMPL = [
+    (t) => `「${t}」と聞いて心が動いたなら、次は体を動かす番です。スマイル24は本日も24時間、逃げも隠れもしません。`,
+    (t) => `今日が「${t}」だと知っているあなたは、もう雑学王です。あとは筋肉さえあれば無敵。ジムでお待ちしています。`,
+    (t) => `カレンダーは「${t}」と言っていますが、あなたの体は「そろそろ動きたい」と言っています。多数決でジム行きが可決されました。`,
+    (t) => `「${t}」を口実にごちそうを楽しむ予定の方、大正解です。食べた分をジムで帳消しにするのが、大人のたしなみです。`,
+    (t) => `記念日は年に1回ですが、ジムのチャンスは年に365回。「${t}」の今日を、運動を始めた記念日にしませんか。`,
+    (t) => `「${t}」の今日、ゴロゴロした人と15分だけ動いた人。1年後に笑うのはどちらでしょう。答え合わせはジムで。`,
+    (t) => `本日は「${t}」。それはさておき、スクワットは今日も裏切りません。それだけお伝えしたくて出てきました。`,
+    (t) => `「${t}」、おめでとうございます（誰にともなく）。おめでたい日は代謝も上がる気がします（個人の感想です）。さあ、ジムへ。`,
+    (t) => `今日は「${t}」。明日を「心地よい筋肉痛の日」にできるかどうかは、今日のあなたに懸かっています。`,
+    (t) => `「${t}」という豆知識は3秒で忘れてもOK。でも「今日ちょっと動いた」という事実は、体が一生覚えています。`,
+    (t) => `「${t}」の今日を特別にする裏ワザ：トレッドミルの上で「今日は${t}かぁ」とつぶやく。以上です。効果は抜群です。`,
+    (t) => `実質無料の豆知識：今日は「${t}」。実質無料の爽快感：運動後のストレッチ。どちらも本日提供中です。`,
+    (t) => `「${t}」。いい響きです。ところで当ジムのウォーターサーバーの水も、いい喉ごしです。飲むついでに、少し動きませんか。`,
+    (t) => `「${t}」の今日も地球は回っています。あなたもマシンの上で、ちょっとだけ回転数を上げてみませんか。`,
+  ];
+
   const DAYS = ['日', '月', '火', '水', '木', '金', '土'];
   const now = new Date();
   const m = now.getMonth() + 1;
   const d = now.getDate();
   const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
 
-  function todayEntry() {
-    return KINENBI[`${m}/${d}`] || MONTHLY[d] || FALLBACK[dayOfYear % FALLBACK.length];
+  const entry = KINENBI[`${m}/${d}`] || MONTHLY[d] || FALLBACK[dayOfYear % FALLBACK.length];
+
+  /* 日付シード付き乱数（同じ日は同じ並び） */
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
   }
+  const rand = mulberry32(now.getFullYear() * 366 + dayOfYear);
+  const idxs = JOKE_TMPL.map((_, i) => i);
+  for (let i = idxs.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [idxs[i], idxs[j]] = [idxs[j], idxs[i]];
+  }
+  const JOKES = [entry.text].concat(idxs.slice(0, 9).map((i) => JOKE_TMPL[i](entry.title)));
 
   /* --- ページ内セクション --- */
   const titleEl    = $('#todayTitle');
   const textEl     = $('#todayText');
   const shuffleBtn = $('#todayShuffle');
 
-  if (titleEl && textEl) {
-    const e = todayEntry();
-    titleEl.textContent = `今日は「${e.title}」`;
-    textEl.textContent  = e.text;
+  let jokeIdx = 0;
+  function renderJoke() {
+    if (!titleEl || !textEl) return;
+    titleEl.textContent = `今日は「${entry.title}」`;
+    textEl.textContent  = JOKES[jokeIdx];
+    if (shuffleBtn) shuffleBtn.textContent = `🔀 次のネタへ（${jokeIdx + 1}/${JOKES.length}）`;
   }
+  renderJoke();
 
-  /* シャッフル：他の日の記念日をランダムに紹介 */
-  const POOL = Object.keys(KINENBI).map(k => ({ date: k, e: KINENBI[k] }));
-  let lastIdx = -1;
   shuffleBtn?.addEventListener('click', () => {
-    let i;
-    do { i = Math.floor(Math.random() * POOL.length); } while (i === lastIdx && POOL.length > 1);
-    lastIdx = i;
-    const p  = POOL[i];
-    const md = p.date.split('/');
-    if (titleEl && textEl) {
-      titleEl.textContent = `${md[0]}月${md[1]}日は「${p.e.title}」`;
-      textEl.textContent  = p.e.text;
-    }
+    jokeIdx = (jokeIdx + 1) % JOKES.length;
+    renderJoke();
   });
 
   /* --- トースト（訪問時のお知らせ） --- */
@@ -615,10 +643,9 @@ function initDayToast() {
   const closeBtn = $('#toastClose');
   if (!toast) return;
 
-  const te = todayEntry();
   $('#toastDate').textContent  = `${m}月${d}日（${DAYS[now.getDay()]}曜日）`;
-  $('#toastKinen').textContent = `✨ 今日は「${te.title}」です`;
-  $('#toastMsg').textContent   = te.text;
+  $('#toastKinen').textContent = `✨ 今日は「${entry.title}」です`;
+  $('#toastMsg').textContent   = JOKES[0];
 
   setTimeout(() => toast.classList.add('is-visible'), 1000);
   setTimeout(() => toast.classList.remove('is-visible'), 10000);

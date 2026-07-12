@@ -698,6 +698,78 @@
       a_en: 'Key safety points:<br>① Don\'t jump to heavy weights too soon<br>② Never sacrifice form to lift more<br>③ Stop immediately if something feels wrong<br>④ Check QR codes by each machine for correct usage<br>Questions? Call us at <b>0120-368-098</b>.'
     },
 
+    /* ---------- 健康サポート（アドバイス→今日動く導線つき） ---------- */
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['ぐっすり眠れ', 'ぐっすり', 'よく眠れ', '睡眠改善', '寝つき'],
+      keys_en: ['sleep better', 'sleep quality', 'fall asleep', 'deep sleep'],
+      a_ja: '睡眠の質を上げるいちばんの近道は、実は<b>日中に軽く体を動かすこと</b>です。運動で深部体温がいったん上がり、夜に下がるタイミングで自然な眠気がやってきます。<br>激しい運動でなくてOK。<b>早歩き20分</b>や軽い筋トレで十分です（就寝2〜3時間前までがおすすめ）。',
+      a_en: 'The fastest route to better sleep is <b>light exercise during the day</b>. Your core temperature rises with exercise, then drops at night — triggering natural sleepiness.<br>Nothing intense needed: a <b>20-minute brisk walk</b> or light weights works (finish 2-3 hours before bed).'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['疲れやすい', '疲れが取れない', 'だるさが続く', 'すぐ疲れる', '疲労回復'],
+      keys_en: ['tired easily', 'fatigue', 'always tired', 'low energy'],
+      a_ja: '意外に思われますが、疲れやすさの一因は<b>「動かなすぎ」</b>にあることも。軽い運動で血流が良くなると、酸素と栄養が全身に行き渡り、疲労物質も流れやすくなります。<br>「疲れたから休む」より<b>「軽く動いて回復する」</b>（アクティブレスト）をぜひ試してみてください。',
+      a_en: 'Surprisingly, one cause of constant fatigue is <b>not moving enough</b>. Light exercise improves blood flow, delivering oxygen and nutrients while flushing out fatigue substances.<br>Instead of "too tired to move," try <b>active rest</b> — light movement that actually recovers you.'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['健康診断', '数値が気になる', '血圧が高め', '血糖値', 'コレステロール', 'メタボ', '中性脂肪'],
+      keys_en: ['health check', 'checkup numbers', 'blood pressure', 'cholesterol', 'metabolic'],
+      a_ja: '健康診断の数値は、生活を見直すチャンスです。<b>有酸素運動＋筋トレの組み合わせ</b>は、血圧・血糖・脂質の改善に役立つと広く言われています。<br>まずは<b>週2回・20分</b>の運動から。数値は急には変わりませんが、体は必ず応えてくれます。<br>※治療中の方は医師にご相談のうえで始めてください。',
+      a_en: 'Health check numbers are a chance to reset your habits. <b>Cardio + strength training</b> is widely recommended for improving blood pressure, blood sugar and lipids.<br>Start with <b>20 minutes, twice a week</b>. Results take time, but your body always responds.<br>*If under treatment, consult your doctor first.'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['運動を習慣', '習慣にするコツ', '続けるコツ', '三日坊主', '長続きしない'],
+      keys_en: ['exercise a habit', 'make it a habit', 'keep exercising', 'stick with'],
+      a_ja: '習慣化のコツは<b>「ハードルを極限まで下げる」</b>ことです。<br>①曜日と時間を決める（例：火・金の仕事帰り）<br>②最初の2週間は<b>15分だけ</b>で帰る<br>③できた日はカレンダーに◯を付ける<br>「物足りない」くらいでやめるのが、実はいちばん続きます。',
+      a_en: 'The secret to habit-building: <b>lower the bar as far as possible</b>.<br>① Fix your days & time (e.g. Tue/Fri after work)<br>② For the first 2 weeks, do <b>only 15 minutes</b><br>③ Mark a ◯ on the calendar each time<br>Stopping while you still want more is what makes it stick.'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['免疫力', '風邪をひきやすい', '体調を崩しやすい', '免疫'],
+      keys_en: ['immune', 'immunity', 'catch colds'],
+      a_ja: '適度な運動は<b>免疫機能の維持</b>に役立つと言われています。ポイントは「適度」。やりすぎはかえって逆効果なので、<b>ほんのり汗ばむ程度</b>の運動を定期的に続けるのが理想です。<br>運動後の水分補給と睡眠も、セットでどうぞ。',
+      a_en: 'Moderate exercise helps <b>maintain immune function</b>. The key word is "moderate" — overdoing it backfires. Aim for regular sessions where you <b>break a light sweat</b>.<br>Pair it with hydration and good sleep for best results.'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['むくみ', '足がむくむ', '冷えやすい', 'めぐりが悪い'],
+      keys_en: ['swelling', 'swollen legs', 'poor circulation', 'cold body'],
+      a_ja: 'むくみや冷えの改善には、<b>ふくらはぎ（第二の心臓）</b>を動かすのが効果的です。トレッドミルの早歩きや、レッグプレスで脚の血流ポンプを起動しましょう。<br>お風呂との合わせ技で、めぐりの良い体に近づきます。',
+      a_en: 'For swelling and cold sensitivity, activate your <b>calves — the "second heart"</b>. Brisk treadmill walking or the Leg Press gets your leg blood pumps going.<br>Combine with a warm bath for even better circulation.'
+    },
+    {
+      cat: 'health', motivate: true,
+      keys_ja: ['気分が落ち', 'やる気が出ない', '気持ちが沈む', 'モチベーションが上がらない'],
+      keys_en: ['no motivation', 'feeling down', 'low mood', 'motivation'],
+      a_ja: 'やる気が出ない日は、<b>やる気を待たずに体を先に動かす</b>のがコツです。5分だけ歩くと、脳が「始まったなら続けよう」と勝手にスイッチを入れてくれます（「作業興奮」と呼ばれます）。<br>気分はあとからついてきます。まず、靴を履きましょう。',
+      a_en: 'On low-motivation days, <b>move first, motivation follows</b>. Walk for just 5 minutes and your brain flips the "we\'ve started, let\'s continue" switch.<br>Mood catches up later. First — put on your shoes.'
+    },
+    {
+      cat: 'health',
+      keys_ja: ['15分だけ動く', '15分だけ', '15分コース'],
+      keys_en: ['15 minutes', 'just 15'],
+      a_ja: '<b>🎉 15分プラン、承りました！</b><br>①ストレッチ 3分<br>②トレッドミル早歩き 10分<br>③水分補給＆深呼吸 2分<br><br>「たった15分」も1ヶ月続けば<b>約7時間分</b>の運動です。今日のあなた、えらすぎます。いってらっしゃい！💪',
+      a_en: '<b>🎉 15-minute plan, coming up!</b><br>① Stretch — 3 min<br>② Brisk treadmill walk — 10 min<br>③ Hydrate & deep breaths — 2 min<br><br>"Just 15 minutes" adds up to <b>~7 hours</b> of exercise in a month. You\'re amazing. Off you go! 💪'
+    },
+    {
+      cat: 'health',
+      keys_ja: ['30分がんばる', '30分くらい動く', '30分コース'],
+      keys_en: ['30 minutes', 'half an hour'],
+      a_ja: '<b>🔥 30分プラン、いいですね！</b><br>①ストレッチ 5分<br>②筋トレマシン2種×2セット 15分<br>③有酸素 8分<br>④クールダウン 2分<br><br>全身がほどよく目覚めるゴールデンバランスです。終わったあとのお風呂は格別ですよ。いってらっしゃい！💪',
+      a_en: '<b>🔥 30-minute plan — nice choice!</b><br>① Stretch — 5 min<br>② 2 machines × 2 sets — 15 min<br>③ Cardio — 8 min<br>④ Cool down — 2 min<br><br>The golden balance that wakes up your whole body. The bath afterward will feel incredible. Go get it! 💪'
+    },
+    {
+      cat: 'health',
+      keys_ja: ['しっかり60分', '60分コース', '1時間しっかり'],
+      keys_en: ['60 minutes', 'full hour', 'one hour'],
+      a_ja: '<b>💪 60分フルコース、かっこいい！</b><br>①ストレッチ 5分<br>②筋トレマシン4種 25分<br>③有酸素 20分<br>④仕上げのストレッチ 10分<br><br>今日のごはんとお風呂と睡眠が、ぜんぶご褒美に変わります。無理せず、水分補給を忘れずに。いってらっしゃい！💪',
+      a_en: '<b>💪 The full 60-minute course — impressive!</b><br>① Stretch — 5 min<br>② 4 machines — 25 min<br>③ Cardio — 20 min<br>④ Final stretch — 10 min<br><br>Tonight\'s dinner, bath and sleep all become rewards. Pace yourself and stay hydrated. Enjoy! 💪'
+    },
+
     /* ---------- お悩み診断（30〜40代女性向け） ---------- */
     {
       cat: 'concern',
@@ -753,6 +825,10 @@
         'Total beginner, haven\'t exercised in years. Nervous about machines…',
         'I only have 20-30 minutes per visit. Is that even worth it?'
       ]
+    },
+    health: {
+      ja: ['ぐっすり眠れるようになりたい', '最近疲れやすい…', '健康診断の数値が気になる', '運動を習慣にするコツは？', 'やる気が出ないときは？'],
+      en: ['I want to sleep better', 'I get tired easily lately', 'My health check numbers worry me', 'How do I make exercise a habit?', 'What if I have no motivation?']
     },
     pricing: {
       ja: ['月額はいくらですか？', '入会金はいくらですか？', '月の途中で入会した場合は？', '解約はいつでもできますか？', '無料見学・体験はできますか？'],
@@ -818,6 +894,7 @@
     if (hdSub)  hdSub.textContent  = LANG === 'ja' ? 'ご質問にお答えします'      : 'How can I help you?';
     var labels = {
       concern:  { ja: '💭 お悩み診断',    en: '💭 Concerns' },
+      health:   { ja: '🌿 健康サポート',  en: '🌿 Health' },
       machine:  { ja: '🤖 機材・マシン', en: '🤖 Equipment' },
       pricing:  { ja: '💰 料金・入会',    en: '💰 Pricing' },
       facility: { ja: '🏠 施設・利用',    en: '🏠 Facility' },
@@ -854,6 +931,14 @@
         delayedRespond(function () {
           addBot('<b>どの部位を鍛えたいですか？</b>以下から選んでください。', '<b>Which body part would you like to train?</b> Choose below.');
           addBodySelector();
+        });
+      } else if (cat === 'health') {
+        delayedRespond(function () {
+          addBot(
+            '体のこと、いっしょに整えていきましょう🌿 <b>気になることを選んでください</b>。<br>最後には「今日どのくらい動くか」まで一緒に決めますよ！',
+            'Let\'s take care of your health together 🌿 <b>Pick a topic</b> — and we\'ll even decide how much to move today!'
+          );
+          addSuggs(CAT_SUGG.health.ja, CAT_SUGG.health.en);
         });
       } else if (cat === 'concern') {
         delayedRespond(function () {
@@ -1061,6 +1146,21 @@
       _renderBot(LANG === 'ja'
         ? '🎉 <b>現在のキャンペーン情報：</b><br>' + CAMPAIGN
         : '🎉 <b>Current Campaign:</b><br>' + CAMPAIGN);
+    }
+
+    /* 健康カテゴリ: 回答のあとに「よし、動こう」につながる導線を出す */
+    if (hit.motivate) {
+      setTimeout(function () {
+        addBot(
+          'ここまで読んだあなたは、もう半分動き始めています😊<br><b>今日はどのくらい動けそうですか？</b>',
+          'Reading this far means you\'re already halfway there 😊<br><b>How much time can you spare today?</b>'
+        );
+        addSuggs(
+          ['今日は15分だけ動く！', '今日は30分がんばる！', '今日はしっかり60分！'],
+          ['Just 15 minutes today!', 'I\'ll do 30 minutes!', 'A full 60 minutes!']
+        );
+      }, 600);
+      return;
     }
 
     /* show up to 3 related questions */
